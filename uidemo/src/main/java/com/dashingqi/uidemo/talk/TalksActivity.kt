@@ -18,7 +18,10 @@ class TalksActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talks)
         initData()
-        talkAdapter = TalkMessageAdapter(datas)
+        //判断一个全局变量是否已经完成了初始化
+        if (!::talkAdapter.isInitialized) {
+            talkAdapter = TalkMessageAdapter(datas)
+        }
         talkRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@TalksActivity)
             adapter = talkAdapter
