@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import com.dashingqi.uidemo.databinding.ActivityMainBinding
 import com.dashingqi.uidemo.listview.ActivityList
 import com.dashingqi.uidemo.recyclerview.ActivityRecyclerView
+import com.dashingqi.uidemo.talk.TalkMessageAdapter
+import com.dashingqi.uidemo.talk.TalksActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnListView.setOnClickListener(this)
         btnRecyclerView.setOnClickListener(this)
         btnMake9Pic.setOnClickListener(this)
+        btnJumpToTalk.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -45,6 +48,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btnMake9Pic -> {
                 imgSrc.setBackgroundResource(R.drawable.message_left_original)
+            }
+            R.id.btnJumpToTalk -> {
+                startActivity(Intent(this, TalksActivity::class.java))
             }
         }
     }
