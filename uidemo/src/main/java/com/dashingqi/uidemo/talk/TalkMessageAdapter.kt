@@ -39,7 +39,6 @@ class TalkMessageAdapter(var data: ArrayList<Message>) :
             is RightViewHolder -> {
                 holder.rightTextView.text = data[position].content
             }
-            else -> throw  IllegalArgumentException()
         }
     }
 }
