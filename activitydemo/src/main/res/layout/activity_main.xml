@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_toast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Show Toast"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish Activity"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_toast" />
+
+    <Button
+        android:id="@+id/btn_show_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示Intent进行跳转"
+        app:layout_constraintTop_toBottomOf="@+id/btn_finish" />
+
+    <Button
+        android:id="@+id/btn_use_hide_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用隐式Intent进行跳转"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_show_intent" />
+
+    <Button
+        android:id="@+id/btn_use_local_browser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用手机浏览器"
+        app:layout_constraintTop_toBottomOf="@+id/btn_use_hide_intent" />
+
+    <Button
+        android:id="@+id/btn_call_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拨打电话界面"
+        app:layout_constraintTop_toBottomOf="@+id/btn_use_local_browser" />
+
+    <Button
+        android:id="@+id/btn_transfer_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递数据到在一个activity"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_call_phone" />
+
+    <Button
+        android:id="@+id/btn_start_activity_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动一个能返回数据的Activity"
+        app:layout_constraintTop_toBottomOf="@+id/btn_transfer_data" />
+
+    <Button
+        android:id="@+id/btn_taste_activity_life"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="体验Activity的生米周期"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_activity_result" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

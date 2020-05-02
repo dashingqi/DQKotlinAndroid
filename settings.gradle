@@ -1,0 +1,8 @@
+rootProject.name='KotlinProject'
+include ':app'
+include ':viewmodeldemo'
+include ':lifecycledemo'
+include ':livedatademo'
+include ':coroutines'
+include ':activitydemo'
+include ':uidemo'

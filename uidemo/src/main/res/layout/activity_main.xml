@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <ProgressBar
+            android:id="@+id/pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:outlineAmbientShadowColor="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改进度"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pb" />
+
+        <Button
+            android:id="@+id/btnShowAlertDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="展示AlertDialog"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/btnProgress" />
+
+        <Button
+            android:id="@+id/btnListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到ListView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/btnShowAlertDialog" />
+
+        <Button
+            android:id="@+id/btnRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到RecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/btnListView" />
+
+        <Button
+            android:id="@+id/btnMake9Pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="展示.9图片"
+            app:layout_constraintTop_toBottomOf="@+id/btnRecyclerView" />
+
+
+        <ImageView
+            android:id="@+id/imgSrc"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnMake9Pic" />
+
+        <Button
+            android:id="@+id/btnJumpToTalk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到聊天界面"
+            app:layout_constraintTop_toBottomOf="@+id/imgSrc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
