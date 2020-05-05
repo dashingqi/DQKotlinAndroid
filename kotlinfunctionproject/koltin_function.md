@@ -72,3 +72,8 @@
 - 修改顶层函数所在的文件名
   - 使用 file:@JvmName("name")
   - 这行代码要放在文件的第一行也就是文件的开头
+###### 顶层属性
+- 和顶层函数一样，顶层属性也是独立放在一个文件中。
+- 顶层属性和其他任意属性一样，都是通过访问器暴露给Java使用的（val声明的只有getter，var声明的有getter和setter）
+- Java中 public static final 修饰的 等同于 kotlin中 const val
+
