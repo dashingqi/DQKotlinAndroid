@@ -76,4 +76,75 @@
 - 和顶层函数一样，顶层属性也是独立放在一个文件中。
 - 顶层属性和其他任意属性一样，都是通过访问器暴露给Java使用的（val声明的只有getter，var声明的有getter和setter）
 - Java中 public static final 修饰的 等同于 kotlin中 const val
-
+#### 扩展函数和属性
+> 扩展函数就是一个类的成员函数，不过定义在类的外面。
+> 扩展函数不能访问私有的或者是受保护的成员
+- 代码实操（计算一个字符串的最后一个字符）
+    ```kotlin
+    fun String.getLastChar():Char = this.get(this.length-1)
+   // 这个函数中 接受者类型是 String 接受者对象是 this 也就是引用；其中我们要扩展的函数是String中的get
+- 代码实操-调用
+    ```kotlin
+    //我们可以想调用其他函数一样来调用这个扩展函数
+    println("kotlin".getLastChar()) 
+    ```
+###### 导入扩展函数
+> 定义的扩展函数不会在整个项目中都生效，如果想要使用就必须的导入它。
+- 用和导入类一样的语法来导入单个函数
+    ```kotlin
+    import CommonFun.lastChar    
+- 用 * 导入
+  ```
+    import CommonFun.* 
+- 使用关键字来修改导入的类或者函数的名称
+  ```
+    import CommonFun.lastChar as last 
+  ```
+###### Java中调用扩展函数
+> 实质上扩展函数就是一个静态函数，把调用对象作为了它第一个参数
+- 代码实操-调用
+  ```java
+  CommonFun.lastChar("Kotlin");
+  ```
+###### 作为扩展函数的工具函数
+- 将joinToString改造成扩展函数
+   ```kotlin
+     //使用扩展函数来改造joinToString
+  fun <T> Collection<T>.joinToStrings(
+       separator: String = "，",
+       preFix: String = "(",
+       postFix: String = ")"
+   ): String {
+       var result = StringBuilder(preFix)
+       for ((index, value) in withIndex()) {
+           if (index > 0) result.append(separator)
+           result.append(value)
+       }
+       result.append(postFix)
+       return result.toString()
+   }
+   ```
+###### 不可重写的扩展函数
+> 扩展函数不是类的一部分，是声明在类之外的。
+> 定义的同名的扩展函数被调用通常由变量的静态类型决定的
+> 扩展函数并不存在重写，kotlin会把它们当作静态函数对待
+- 代码实操
+  ```kotlin
+   var button = Button(this)
+   button.showOff()
+   //运行结果 i am a button
+   var view = View(this)
+   view.showOff()
+   // 运行结果 i am a view
+   
+   var view:View = Button(this)
+   view.showOff()
+   //运行结果 i am a view
+   // 当你在调用一个类型为View的变量的showOff函数时，对应的扩展函数会被调用，尽管实际上这个变量现在是一个Button对象
+  ```
+###### 扩展属性
+- 将定义好的扩展函数 lastChar 改造成扩展属性
+  ```kotlin
+   val String.lastChars: Char
+   get() = get(length - 1) 
+  ```

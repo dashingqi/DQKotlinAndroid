@@ -2,9 +2,14 @@ package com.dashingqi.kotlinfunctionproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Button
 import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,20 @@ class MainActivity : AppCompatActivity() {
         println("joinToString == $joinToString")
         var defaultParamList = joinToString(numbers)
         println(defaultParamList)
+
+        Log.d(TAG, "${"kotlin".lastChar()}")
+
+        var lists = arrayListOf(1, 2, 3, 4, 6, 8, 3, 43)
+        println("lists ---> ${lists.joinToStrings()}")
+
+        var button = Button(this)
+        button.showOff()
+
+        var view = View(this)
+        view.showOff()
+
+        var views: View = Button(this)
+        views.showOff()
 
     }
 
