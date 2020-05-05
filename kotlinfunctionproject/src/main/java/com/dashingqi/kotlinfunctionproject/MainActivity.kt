@@ -25,22 +25,24 @@ class MainActivity : AppCompatActivity() {
 
         var joinToString = joinToString(numbers, "/", "%", "%")
         println("joinToString == $joinToString")
+        var defaultParamList = joinToString(numbers)
+        println(defaultParamList)
 
     }
 
-    private fun <T> joinToString(
-        collection: Collection<T>,
-        separator: String,
-        prefix: String,
-        postfix: String
-    ): String {
-        var result = StringBuilder(prefix)
-        for ((index, value) in collection.withIndex()) {
-            if (index > 0) result.append(separator)
-            result.append(value)
-        }
-
-        result.append(postfix)
-        return result.toString()
-    }
+//    private fun <T> joinToString(
+//        collection: Collection<T>,
+//        separator: String = "--> ",
+//        prefix: String = "「",
+//        postfix: String = "」"
+//    ): String {
+//        var result = StringBuilder(prefix)
+//        for ((index, value) in collection.withIndex()) {
+//            if (index > 0) result.append(separator)
+//            result.append(value)
+//        }
+//
+//        result.append(postfix)
+//        return result.toString()
+//    }
 }

@@ -32,4 +32,43 @@
 
 ###### kotlin中如何改这个样式
 - kotlin中有工具来简化函数的声明，我们手动实现这个工具函数（joinToString()）
+  ```kotlin
+    private fun <T> joinToString(
+        collection: Collection<T>,
+        separator: String,
+        prefix: String,
+        postfix: String
+      ): String {
+          var result = StringBuilder(prefix)
+          for ((index, value) in collection.withIndex()) {
+              if (index > 0) result.append(separator)
+              result.append(value)
+          }
 
+          result.append(postfix)
+          return result.toString()
+    }
+  ```
+###### 默认值的参数
+> Java中一个类中有太多的重载函数，看起来很不爽，kotlin中的默认值参数了解一下
+
+- Kotlin中可以在声明函数的时候，指定参数的默认值，这样可以避免创建重载函数
+- 参数的默认值是被编码到调用的函数中，不是调用的地方。
+- @JvmOverloads注解
+  - 该注解可以让编译器生成Java重载函数，从最后一个开始省略每个参数
+
+#### 顶层函数和属性
+###### 顶层函数
+> 我的理解就是Java中通用的工具类函数，
+- 在Kotlin中这些函数不属于任何一个类，但是属于包下的成员，其他包要使用，必须的导包
+- 步骤
+  - 创建一个.kt文件
+  - 在该文件中声明一个函数，那么该函数就是一个顶层函数
+  - 在kotlin中可以直接使用，
+  - 在Java中调用的话，需要把默认参数补其，同时需要以静态函数的形式调用
+    ```kotlin
+         CommonFun.joinToString(list,"","","")
+    ```
+- 修改顶层函数所在的文件名
+  - 使用 file:@JvmName("name")
+  - 这行代码要放在文件的第一行也就是文件的开头
