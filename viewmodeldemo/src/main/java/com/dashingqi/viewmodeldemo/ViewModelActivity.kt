@@ -17,7 +17,7 @@ class ViewModelActivity : AppCompatActivity() {
                 return ViewModelDemo("test") as T
             }
 
-        })[ViewModelDemo::class.java]
+        }).get(ViewModelDemo::class.java)
         Log.d("viewModelDemo -->", viewModelDemo.toString())
         Log.d("liveData --> ", viewModelDemo.liveData.toString())
         text.text = viewModelDemo.liveData.value.toString()
