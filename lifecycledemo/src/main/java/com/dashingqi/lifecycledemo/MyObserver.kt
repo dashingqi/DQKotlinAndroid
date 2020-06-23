@@ -14,6 +14,12 @@ class MyObserver(val lifecycle: Lifecycle) : LifecycleObserver {
     private val TAG = "MyObserver"
     val myLifecycle = lifecycle
 
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun activityCreate() {
+        Log.d(TAG, "activityCreate ")
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun activityStart() {
         Log.d(TAG, "activityStart: ")
