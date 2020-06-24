@@ -21,7 +21,7 @@ class LiveDataMainActivity : AppCompatActivity() {
         })
 
         btnChange.setOnClickListener {
-            viewModelDemo2.liveData.postValue("i am coming ")
+            viewModelDemo2.liveData.value = "i am coming "
 
         }
 

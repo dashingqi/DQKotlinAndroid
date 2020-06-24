@@ -11,17 +11,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MediatorLiveDataMainActivity">
 
+
+        </activity>
+        <activity android:name=".SwitMapMainActivity">
+
+        </activity>
+        <activity android:name=".MapLiveDataMainActivity"></activity>
+        <activity android:name=".LiveDataMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SwitMapMainActivity">
-
-        </activity>
-        <activity android:name=".MapLiveDataMainActivity"></activity>
-        <activity android:name=".LiveDataMainActivity" />
         <activity android:name=".MainActivity" />
     </application>
 
