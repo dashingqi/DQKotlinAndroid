@@ -174,6 +174,12 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * lambda表达式作为返回值
+     *
+     * (Double) -> double
+     *
+     * (Double) 是作为Lambda表达式的参数类型
+     *
+     * -> Double 是作为返回返回值类型也就是 getPrice()函数
      */
     private fun getPrice(userType: USER): (Double) -> Double {
 
