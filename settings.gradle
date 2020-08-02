@@ -1,3 +1,4 @@
+include ':module-lambda'
 rootProject.name='KotlinProject'
 include ':app'
 include ':viewmodeldemo'
