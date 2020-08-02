@@ -5,6 +5,7 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,7 +27,9 @@ class MainActivity : AppCompatActivity() {
 //        lambdaTestThree()
 //        testLambdaReturnValue()
 
-        testFour()
+//        testFour()
+
+        testAsParameter()
     }
 
 
@@ -109,6 +112,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * 这是用来练习子啊Lambda表达式的实际返回值后面书写语句
+     */
     private fun testFour() {
         val result = { a: Int, b: Int ->
             a + b
@@ -116,6 +122,42 @@ class MainActivity : AppCompatActivity() {
         }(5, 6)
 
         println("result ---> $result")
+    }
+
+
+    /**
+     * 这是用来测试Lambda作为参数的测试
+     */
+    private fun testAsParameter() {
+        //定一个Int数组
+        val list = 1..20
+        //筛选能被10整除的
+        println("==========================")
+        //没有使用it关键字之前
+        println(list.pickNUm(2) { y: Int -> y % 10 == 0 })
+        //使用关键字之后
+        println(list.pickNUm(2) { it % 10 == 0 })
+    }
+
+    /**
+     * function: (Int) -> Boolean
+     *
+     * function: 形式参数名，可以任意修改
+     *
+     * (Int) -> Boolean 形式参数类型 这里描述的是一个函数类型，函数的参数是Int类型 函数的返回值是Boolean类型的
+     */
+    private fun IntRange.pickNUm(need: Int, function: (Int) -> Boolean): List<Int> {
+
+        //声明一个集合
+        val resultList = mutableListOf<Int>()
+
+        // this 指向定义的区间范围（IntRange）
+        for (i in this) {
+            if (function(i)) {
+                resultList.add(i)
+            }
+        }
+        return resultList
     }
 
 
