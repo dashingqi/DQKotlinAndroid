@@ -2,6 +2,7 @@ package com.dashingqi.module.lambda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.UserHandle
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +30,9 @@ class MainActivity : AppCompatActivity() {
 
 //        testFour()
 
-        testAsParameter()
+//        testAsParameter()
+
+        testAsReturnValue()
     }
 
 
@@ -158,6 +161,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return resultList
+    }
+
+
+    fun testAsReturnValue() {
+        val normalPrice = getPrice(USER.NORMAL)(400.0)
+        println("normalPrice ----> $normalPrice")
+
+        val vipPrice = getPrice(USER.VIP)(400.0)
+        println("vipPrice ----> $vipPrice")
+    }
+
+    /**
+     * lambda表达式作为返回值
+     */
+    private fun getPrice(userType: USER): (Double) -> Double {
+
+        if (userType == USER.NORMAL) {
+            return { it }
+        }
+
+        return { price -> 0.88 * price }
+
     }
 
 
