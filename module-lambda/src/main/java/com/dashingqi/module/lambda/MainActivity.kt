@@ -1,8 +1,10 @@
 package com.dashingqi.module.lambda
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.UserHandle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +35,14 @@ class MainActivity : AppCompatActivity() {
 //        testAsParameter()
 
         testAsReturnValue()
+
+        btnStandMethod.setOnClickListener {
+            Intent(this, KotlinStandMethod::class.java).apply {
+                startActivity(this)
+            }
+        }
+
+
     }
 
 
