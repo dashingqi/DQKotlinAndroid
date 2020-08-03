@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.UserHandle
+import com.dashingqi.module.lambda.country.Country
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -207,4 +208,74 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * 刚开始仅仅就是查找世界上属于欧洲的国家
+     */
+    private fun filterCountry(country: List<Country>): List<Country> {
+        val countries = mutableListOf<Country>()
+
+        for (c in country) {
+            if (c.continitent == "EU") {
+                countries.add(c)
+            }
+        }
+        return countries
+    }
+
+
+    /**
+     * 后来又对非洲产生出来兴趣了，继续改造,增加一个字段
+     */
+    private fun filterCountry(country: List<Country>, continitent: String): List<Country> {
+        val countries = mutableListOf<Country>()
+
+        for (c in country) {
+            if (c.continitent == continitent) {
+                countries.add(c)
+            }
+        }
+        return countries
+    }
+
+    /**
+     * 然后在之前的基础上，又要对人口有要求了，就继续改造了
+     */
+
+    private fun filterCountry(
+        country: List<Country>,
+        continitent: String,
+        popular: Int
+    ): List<Country> {
+        val countries = mutableListOf<Country>()
+
+        for (c in country) {
+            if (c.continitent == continitent && c.popular > popular) {
+                countries.add(c)
+            }
+        }
+        return countries
+    }
+
+    /**
+     * 按照这样的设置，函数的参数会随着筛选条件的增加在不断的扩大，需要使用函数类型参数
+     *
+     * (Int)-> Unit
+     *
+     * 使用 -> 来链接参数类型和返回值类型
+     * 使用括号来包裹参数类型
+     * 返回值类型即使是Unit ，也必须要显示指出
+     * 如果是没有参数类型的 ,参数类型部分就保留小括号
+     *
+     */
+
+    private fun filterCountry(country: List<Country>, filter: (Country) -> Boolean): List<Country> {
+        val countries = mutableListOf<Country>()
+
+        for (c in country) {
+            if (filter(c)) {
+                countries.add(c)
+            }
+        }
+        return countries
+    }
 }
