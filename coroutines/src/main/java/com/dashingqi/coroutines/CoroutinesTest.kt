@@ -18,7 +18,11 @@ fun main() {
     //该方法的执行会阻塞当前的线程，并且会阻塞当前线程下的所有协程
     //Thread.sleep(1000)
 
-   test()
+    //test()
+    //useAsync()
+    //useTwoAsync()
+    //useTwoAsync2()
+    useWithContext()
 }
 
 /**
@@ -87,12 +91,12 @@ fun createMoreAndMoreCoroutines() {
     println("cost time ---> ${end - start}")
 }
 
-suspend  fun useSuspend(){
+suspend fun useSuspend() {
 //    println("use suspend")
 //    //挂起函数之间是可以互相调用
 //    delay(1000)
     // 挂起函数是没有协程作用域的，此时是调用不了 launch函数的会失败的，因为launch函数需要在具有协程作用域中才能被调用
-   // launch{}
+    // launch{}
 }
 
 suspend fun useSuspendWithCoroutinesScope() = coroutineScope {
@@ -102,7 +106,7 @@ suspend fun useSuspendWithCoroutinesScope() = coroutineScope {
     }
 }
 
-fun test(){
+fun test() {
     runBlocking {
         launch {
             // launch业务逻辑越来越复杂，抽取一个函数出去
@@ -111,6 +115,78 @@ fun test(){
             // 使用coroutineScope函数 可以解决这个问题，它是一个挂起函数，并且会继承外部的协程作用域并创建一个子作用域的
             useSuspendWithCoroutinesScope()
 
+        }
+    }
+}
+
+fun useAsync() {
+    runBlocking {
+        launch {
+            var result = async {
+                4 * 4
+            }.await()
+
+            println("result ----> $result")
+        }
+    }
+}
+
+/**
+ * 当调用await()方法时，如果代码中的代码还没执行完毕，那么await方法会把当前协程阻塞住，直到获取到async函数的执行结果
+ */
+fun useTwoAsync() {
+    runBlocking {
+        launch {
+            var start = System.currentTimeMillis()
+            var result1 = async {
+                delay(1000)
+                5 + 5
+            }.await()
+
+            var result2 = async {
+                delay(1000)
+                4 + 4
+            }.await()
+
+            println("result -> ${result1 + result2}")
+
+            var end = System.currentTimeMillis()
+            println("cots time ---> ${end - start}")
+        }
+    }
+    // 函数运行结果时 2045毫秒， 在子作用域中执行了挂起函数 delay()阻塞了当前的子协程，await()没有方法没有获取到结果，就会阻塞当前的协程
+}
+
+fun useTwoAsync2() {
+    runBlocking {
+        launch {
+            var start = System.currentTimeMillis()
+            var result1 = async {
+                delay(1000)
+                4 + 4
+            }
+
+            var result2 = async {
+                delay(1000)
+                5 + 5
+            }
+
+            // 让两个 async函数并行
+            println("result ----> ${result1.await() + result2.await()}")
+            var end = System.currentTimeMillis()
+            println("cost time ----> ${end - start}")
+        }
+    }
+}
+
+fun useWithContext() {
+    runBlocking {
+        launch {
+            var result = withContext(Dispatchers.Default) {
+                5 + 5
+            }
+
+            println("result ---> $result")
         }
     }
 }
