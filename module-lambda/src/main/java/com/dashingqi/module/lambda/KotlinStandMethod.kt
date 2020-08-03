@@ -29,7 +29,11 @@ class KotlinStandMethod : AppCompatActivity() {
 //        minByMethod()
 //        distinctByMethod()
 //        repeatMethod()
-        runMethod()
+        //runMethod()
+//        mapMethod()
+        allMethod()
+        anyMethod()
+        groupByMethod()
     }
 
     /**
@@ -147,6 +151,7 @@ class KotlinStandMethod : AppCompatActivity() {
          */
     }
 
+
     /**
      * count方法用于查找符合提交的元素个数
      */
@@ -239,5 +244,60 @@ class KotlinStandMethod : AppCompatActivity() {
 
         println("size -----> $listSize")
 
+    }
+
+    /**
+     * map()方法 可以操作集合中的每一个元素，然后把结果收集到一个新集合中
+     * 但是不改变原集合中的元素
+     */
+    private fun mapMethod() {
+        println("===============map()方法==================")
+        println(
+            "操作集合list ${list.map { it * 3 }}"
+        )
+
+        println("原集合  =======> $list")
+    }
+
+    /**
+     * all()方法 如果你对所有元素都满足判断式感兴趣，就可以使用all函数
+     */
+    private fun allMethod() {
+        println("================all()====================")
+        println("all method perform ----> ${list.all { it > 4 }}")
+
+        /**
+         *  运行结果
+         *  2020-08-04 00:23:58.312 2140-2140/com.dashingqi.module.lambda I/System.out: ================all()====================
+         *  2020-08-04 00:23:58.312 2140-2140/com.dashingqi.module.lambda I/System.out: all method perform ----> false
+         */
+    }
+
+    /**
+     * any()方法，如果你要检查集合中是否存在一个匹配元素，就使用any
+     */
+    private fun anyMethod() {
+        println("================any()====================")
+        println("any method perform ------> ${list.any { it > 4 }}")
+
+        /**
+         *
+         * 2020-08-04 00:23:58.313 2140-2140/com.dashingqi.module.lambda I/System.out: ================any()====================
+         * 2020-08-04 00:23:58.313 2140-2140/com.dashingqi.module.lambda I/System.out: any method perform ------> true
+         */
+    }
+
+    /**
+     * groupBy()方法 会根据给定的条件 分成符合条件和不符合条件的两组数据 用一个map来装载
+     */
+    private fun groupByMethod() {
+        println("================groupBy==================")
+        println("groupBy perform ----> ${list.groupBy { it < 4 }}")
+
+        /**
+         * 运行结果
+         * 2020-08-04 00:31:38.083 2560-2560/com.dashingqi.module.lambda I/System.out: ================groupBy==================
+         * 2020-08-04 00:31:38.083 2560-2560/com.dashingqi.module.lambda I/System.out: groupBy perform ----> {true=[1, 3, 3, 1, -56], false=[4, 4, 56]}
+         */
     }
 }
