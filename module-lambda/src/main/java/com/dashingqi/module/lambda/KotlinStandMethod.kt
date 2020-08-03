@@ -11,7 +11,7 @@ class KotlinStandMethod : AppCompatActivity() {
     /**
      * 定义一个集合
      */
-    private val list = listOf<Int>(1, 3, 4, 56, -56)
+    private val list = listOf<Int>(1, 3, 4, 4, 3, 1, 56, -56)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_koltin_stand_method)
@@ -19,11 +19,17 @@ class KotlinStandMethod : AppCompatActivity() {
 //        findMethod()
 //        firstAndLastMethod()
 //        singleMethod()
-        takeWhileMethod()
-
-        filterMethod()
-
-        countMethod()
+//        takeWhileMethod()
+//
+//        filterMethod()
+//
+//        countMethod()
+//
+//        maxByMethod()
+//        minByMethod()
+//        distinctByMethod()
+//        repeatMethod()
+        runMethod()
     }
 
     /**
@@ -157,6 +163,81 @@ class KotlinStandMethod : AppCompatActivity() {
          * 2020-08-02 20:02:05.487 29911-29911/com.dashingqi.module.lambda I/System.out: 查找大于1的元素个数：3
          * 2020-08-02 20:02:05.487 29911-29911/com.dashingqi.module.lambda I/System.out: 查找小于-69的元素个数：0
          */
+
+    }
+
+    /**
+     * 练习使用 maxBy()方法，用于获取集合中元素最大的元素
+     */
+    private fun maxByMethod() {
+        println("================maxBy================")
+        println("查找集合中最大的元素：${list.maxBy { it }}")
+    }
+
+    /**
+     * 练习使用minBy()方法，用于获取集合中最小的元素
+     */
+    private fun minByMethod() {
+
+        println("==================minBy===============")
+        println("查找集合中最小的元素：${list.minBy { it }}")
+
+    }
+
+    /**
+     * distinctBy()对集合中的元素去重
+     */
+    private fun distinctByMethod() {
+        println("===================distinctBy================")
+        println("去重集合中的元素：${list.distinctBy { it }}")
+    }
+
+    /**
+     * repeat()函数，用于重复执行某一条语句
+     */
+    private fun repeatMethod() {
+
+        println("==========repeat函数===========")
+        repeat(1) {
+            println("重复执行这条语句1次")
+        }
+
+        repeat(2) {
+            println("重复执行这条语句2次")
+        }
+
+
+        /**
+         * 执行结果
+         * 2020-08-03 09:22:32.750 11639-11639/com.dashingqi.module.lambda I/System.out: ==========repeat函数===========
+         * 2020-08-03 09:22:32.750 11639-11639/com.dashingqi.module.lambda I/System.out: 重复执行这条语句1次
+         * 2020-08-03 09:22:32.750 11639-11639/com.dashingqi.module.lambda I/System.out: 重复执行这条语句2次
+         * 2020-08-03 09:22:32.750 11639-11639/com.dashingqi.module.lambda I/System.out: 重复执行这条语句2次
+         */
+
+    }
+
+    /**
+     * T.run()方法的练习
+     */
+    private fun runMethod() {
+
+        var list = ArrayList<String>()
+        val listSize = list.run {
+            add("test1")
+            add("test2")
+            add("test3")
+            //可以使用return语句来结束程序的运行，执行return会导致下面两个println()打印语句也不会执行
+            // return
+            // 使用 return@方法名 来结束当前方法的执行，下面两个println()打印语句会执行的，只是让当前所在的方法结束执行
+            //return@run
+
+            size
+        }
+
+        println("list ----> $list")
+
+        println("size -----> $listSize")
 
     }
 }
