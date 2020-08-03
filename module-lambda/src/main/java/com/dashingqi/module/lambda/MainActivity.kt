@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnInLineMethod.setOnClickListener {
+            Intent(this, InLineActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 
     }
 
