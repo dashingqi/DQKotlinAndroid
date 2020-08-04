@@ -1,3 +1,4 @@
+include ':module-kotlin-base'
 include ':module-lambda'
 rootProject.name='KotlinProject'
 include ':app'
