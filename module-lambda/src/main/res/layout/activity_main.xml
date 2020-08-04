@@ -47,4 +47,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInLineMethod" />
 
+    <Button
+        android:id="@+id/btnJavaMethodInterface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="java的就函数式接口"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSequenceOperate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
