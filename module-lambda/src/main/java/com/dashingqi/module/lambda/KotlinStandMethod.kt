@@ -31,9 +31,10 @@ class KotlinStandMethod : AppCompatActivity() {
 //        repeatMethod()
         //runMethod()
 //        mapMethod()
-        allMethod()
-        anyMethod()
-        groupByMethod()
+//        allMethod()
+//        anyMethod()
+//        groupByMethod()
+        groupByMethodTest()
     }
 
     /**
@@ -300,4 +301,21 @@ class KotlinStandMethod : AppCompatActivity() {
          * 2020-08-04 00:31:38.083 2560-2560/com.dashingqi.module.lambda I/System.out: groupBy perform ----> {true=[1, 3, 3, 1, -56], false=[4, 4, 56]}
          */
     }
+
+    private fun groupByMethodTest() {
+        var people = listOf(Person("person1", 22), Person("person2", 34), Person("Person3", 25))
+        val ageList = people.groupBy { it.age }
+        println("ageList -------> $ageList")
+
+        var strList = listOf("ab", "abc", "c")
+
+        val strGroupByList = strList.groupBy(String::first)
+
+        println("strGroupList -------> $strGroupByList")
+    }
+
+
+    /**
+     * 处理嵌套集合中的元素
+     */
 }
