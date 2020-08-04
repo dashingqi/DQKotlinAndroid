@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InLineActivity"></activity>
+        <activity android:name=".Sequence.SequenceActivity"></activity>
+        <activity android:name=".InLineActivity" />
         <activity android:name=".KotlinStandMethod" />
         <activity android:name=".MainActivity">
             <intent-filter>

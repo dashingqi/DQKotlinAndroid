@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.UserHandle
+import com.dashingqi.module.lambda.Sequence.SequenceActivity
 import com.dashingqi.module.lambda.country.Country
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -45,6 +46,12 @@ class MainActivity : AppCompatActivity() {
 
         btnInLineMethod.setOnClickListener {
             Intent(this, InLineActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
+        btnSequenceOperate.setOnClickListener {
+            Intent(this, SequenceActivity::class.java).apply {
                 startActivity(this)
             }
         }

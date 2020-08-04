@@ -35,6 +35,8 @@ class KotlinStandMethod : AppCompatActivity() {
 //        anyMethod()
 //        groupByMethod()
         groupByMethodTest()
+
+        flatMapMethod()
     }
 
     /**
@@ -317,5 +319,31 @@ class KotlinStandMethod : AppCompatActivity() {
 
     /**
      * 处理嵌套集合中的元素
+     *
+     * flatMap()
      */
+
+    private fun flatMapMethod() {
+
+        var bookList =
+            listOf(
+                Book("think in java", listOf("a", "b", "c")),
+                Book("think in c", listOf("a", "cvb"))
+            )
+
+        //无序，不可重复
+        var authorList = bookList.flatMap { it.authorList }.toSet()
+        println("authorList ---> $authorList")
+        // 结果 ---> authorList ---> [a, b, c, cvb]
+    }
+
+    private fun flattenMethod() {
+
+        var bookList =
+            listOf(
+                Book("think in java", listOf("a", "b", "c")),
+                Book("think in c", listOf("a", "cvb"))
+            )
+
+    }
 }
