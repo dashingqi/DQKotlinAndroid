@@ -21,5 +21,17 @@ class MainActivity : AppCompatActivity() {
         println("age ====> $age")
 
         name = "123"
+
+        setStr(null)
+    }
+
+
+    /**
+     * 这里声明的String属性是不能存储 null引用（空类型的）
+     * 如果想要str能存储null引用，就得在String后面加上 ?
+     *
+     */
+    private fun setStr(str: String?): Int? {
+        return str?.length
     }
 }
