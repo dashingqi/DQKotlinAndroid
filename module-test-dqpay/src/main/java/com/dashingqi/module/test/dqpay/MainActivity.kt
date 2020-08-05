@@ -38,13 +38,14 @@ class MainActivity : AppCompatActivity() {
                     Log.d("wxPayInfo", "pay onCancel")
                 }
 
-                override fun onFail() {
-                    Log.d("wxPayInfo", "pay onFail")
-                }
 
                 override fun onSuccess(data: WXPayInfoBean) {
                     Log.d("wxPayInfo", "pay onSuccess ----> appId ===>  ${data.appId}")
 
+                }
+
+                override fun onFail(errorCode: Int, errorMsg: String) {
+                    Log.d("wxPayInfo", "pay onFail -----> $errorCode ,--------> $errorMsg")
                 }
 
             }
