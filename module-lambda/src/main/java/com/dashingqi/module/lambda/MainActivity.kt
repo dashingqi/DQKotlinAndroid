@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.UserHandle
 import com.dashingqi.module.lambda.Sequence.SequenceActivity
+import com.dashingqi.module.lambda.Site.OS
+import com.dashingqi.module.lambda.Site.SiteVisit
 import com.dashingqi.module.lambda.country.Country
+import com.dashingqi.module.lambda.invoke.InvokeData
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,6 +65,15 @@ class MainActivity : AppCompatActivity() {
                 startActivity(this)
             }
         }
+
+        //测试自己定义的filter函数
+        val newStr = "abfcdsd1323asdas".filter { it in 'a'..'z' }
+
+        println("newString ----> $newStr")
+
+        testSite()
+
+        invokeMethod()
 
     }
 
@@ -291,4 +304,43 @@ class MainActivity : AppCompatActivity() {
         }
         return countries
     }
+
+    /**
+     * 实现一个filter函数，过滤掉字符串中不属于 a..z
+     */
+
+    private fun String.filter(method: (value: Char) -> Boolean): String {
+        var values = StringBuilder()
+        //这里面的this 指代的是String --->
+        for (index in this.indices) {
+            if (method(get(index))) values.append(get(index))
+        }
+        return values.toString()
+    }
+
+
+    private fun testSite() {
+        val log2 = listOf(
+            SiteVisit("/", 34.0, OS.WINDOW),
+            SiteVisit("/", 22.0, OS.MAC),
+            SiteVisit("/login", 12.0, OS.WINDOW),
+            SiteVisit("/signup", 8.0, OS.IOS),
+            SiteVisit("/", 16.3, OS.ANDROID)
+        )
+
+        val data = log2.averageDuration { it.os in setOf(OS.ANDROID, OS.MAC) }
+    }
+
+    private fun List<SiteVisit>.averageDuration(predicate: (SiteVisit) -> Boolean): Double {
+        val data = filter(predicate).map(SiteVisit::duration)
+        println("data ---> $data")
+        return data.average()
+    }
+
+
+    private fun invokeMethod() {
+        var invokeData = InvokeData("this is name")
+        invokeData()
+    }
+
 }
