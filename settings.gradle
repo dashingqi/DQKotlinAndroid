@@ -1,3 +1,4 @@
+include ':module-databinding'
 include ':module-room'
 include ':module-kotlin-base'
 include ':module-lambda'
