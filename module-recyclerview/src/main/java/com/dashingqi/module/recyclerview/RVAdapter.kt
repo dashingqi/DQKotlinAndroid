@@ -1,5 +1,6 @@
 package com.dashingqi.module.recyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -14,9 +15,13 @@ import com.dashingqi.module.recyclerview.databinding.RvItemBinding
  */
 class RVAdapter(var itemData: ArrayList<String> = ArrayList()) :
     RecyclerView.Adapter<RVAdapter.MyViewHolder>() {
+    private val TAG = "RVAdapter"
+    private var viewHolderCount = 0
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        viewHolderCount++
+        Log.d(TAG, "onCreateViewHolder ---->$viewHolderCount")
         var itemBinding = DataBindingUtil.inflate<RvItemBinding>(
             LayoutInflater.from(parent.context),
             R.layout.rv_item,
@@ -31,6 +36,7 @@ class RVAdapter(var itemData: ArrayList<String> = ArrayList()) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        Log.d(TAG, ": onBindViewHolder")
         var dataBinding = holder.viewDataBinding as RvItemBinding
         dataBinding.item = itemData[position]
         dataBinding.executePendingBindings()
@@ -39,5 +45,9 @@ class RVAdapter(var itemData: ArrayList<String> = ArrayList()) :
     class MyViewHolder(var viewDataBinding: ViewDataBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
 
+    }
+
+    companion object {
+        private const val TAG = "RVAdapter"
     }
 }

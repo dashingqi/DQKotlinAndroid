@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configRv() {
-        for (index in 0..5) {
+        for (index in 0 until 200) {
             data.add("item $index")
         }
         rv.layoutManager = CustomLayoutManager()
