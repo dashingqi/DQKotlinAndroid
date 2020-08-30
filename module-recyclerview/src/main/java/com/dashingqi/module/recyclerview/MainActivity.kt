@@ -2,24 +2,17 @@ package com.dashingqi.module.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.databinding.DataBindingUtil
+import com.dashingqi.module.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var data = ArrayList<String>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        configRv()
+        val mainBinding =
+            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        //绑定ViewModel
+        mainBinding.viewModel = FoodViewModel()
     }
 
-    private fun configRv() {
-        for (index in 0 until 200) {
-            data.add("item $index")
-        }
-        rv.layoutManager = CustomLayoutManager()
-        rv.adapter = RVAdapter(data)
-    }
 }

@@ -13,7 +13,7 @@ import com.dashingqi.module.recyclerview.databinding.RvItemBinding
  * @time : 2020/8/27
  * desc :
  */
-class RVAdapter(var itemData: ArrayList<String> = ArrayList()) :
+class RVAdapter(var itemData: ArrayList<Food> = ArrayList()) :
     RecyclerView.Adapter<RVAdapter.MyViewHolder>() {
     private val TAG = "RVAdapter"
     private var viewHolderCount = 0

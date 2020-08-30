@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="String" />
+            type="com.dashingqi.module.recyclerview.Food" />
 
     </data>
 
@@ -14,15 +14,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/ivCover"
+            imageUrl="@{item.imgUrl}"
+            android:layout_width="80dp"
+            android:scaleType="centerCrop"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="@{item}"
+            android:text="@{item.name}"
             android:textColor="#333333"
             android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintLeft_toRightOf="@+id/ivCover"
+            app:layout_constraintTop_toTopOf="@+id/ivCover" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{item.desc}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCover"
+            app:layout_constraintLeft_toLeftOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
