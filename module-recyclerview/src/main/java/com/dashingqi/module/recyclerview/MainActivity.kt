@@ -30,6 +30,12 @@ class MainActivity : AppCompatActivity() {
                     startActivity(this)
                 }
         }
+
+        btnPhotoWall.setOnClickListener {
+            Intent(this, PhotoWallActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 //        rv.adapter = RVAdapter(data)
     }
 
