@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         for (index in 0..60) {
             data.add("item $index")
         }
-        rv.layoutManager = CustomLayoutManager()
         rv.adapter = RVAdapter(data)
     }
 }

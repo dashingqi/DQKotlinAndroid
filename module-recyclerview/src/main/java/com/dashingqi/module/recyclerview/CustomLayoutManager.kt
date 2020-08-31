@@ -26,7 +26,7 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
      */
     override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
         var offsetY = 0
-        for (position in 0..childCount) {
+        for (position in 0 until itemCount) {
             var itemView = recycler?.getViewForPosition(position)
             itemView?.let {
                 addView(it)
@@ -40,7 +40,32 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
         }
     }
 
+
+    /**
+     * 开启能够垂直滑动
+     */
     override fun canScrollVertically(): Boolean {
         return true
+    }
+
+    /**
+     * 方法中的 dy表示每次手指滑动的位移
+     * 当dy>0 表示从上向下滑动
+     * 当dy<0 表示从下向上滑动
+     */
+
+    var mSumDy = 0
+    override fun scrollVerticallyBy(
+        dy: Int,
+        recycler: RecyclerView.Recycler?,
+        state: RecyclerView.State?
+    ): Int {
+        var tempDy = dy
+        if (mSumDy+dy<0){
+            tempDy = -mSumDy
+        }
+        mSumDy += tempDy
+        offsetChildrenVertical(-tempDy)
+        return dy
     }
 }
