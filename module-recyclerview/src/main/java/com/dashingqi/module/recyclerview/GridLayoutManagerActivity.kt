@@ -38,7 +38,7 @@ class GridLayoutManagerActivity : AppCompatActivity() {
             items.add(food)
         }
         var adapter = GridLayoutAdapter(items)
-        rv.addItemDecoration(ComItemDecorate())
+        rv.addItemDecoration(TimelineItemDecoration())
         rv.adapter = adapter
     }
 }
