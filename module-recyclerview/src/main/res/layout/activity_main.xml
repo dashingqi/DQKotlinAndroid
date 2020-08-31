@@ -25,6 +25,14 @@
             android:text="jump"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btnStickHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Stick Header"
+            app:layout_constraintTop_toBottomOf="@+id/btnJump" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
@@ -35,7 +43,7 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnJump" />
+            app:layout_constraintTop_toBottomOf="@+id/btnStickHeader" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

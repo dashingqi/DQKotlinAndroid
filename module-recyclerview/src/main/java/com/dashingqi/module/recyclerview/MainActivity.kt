@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
                     startActivity(this)
                 }
         }
+
+        btnStickHeader.setOnClickListener {
+            Intent(this, StickHeaderActivity::class.java)
+                .apply {
+                    startActivity(this)
+                }
+        }
     }
 
 }
