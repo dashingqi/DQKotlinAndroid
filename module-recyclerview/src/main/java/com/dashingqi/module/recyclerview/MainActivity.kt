@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         //绑定ViewModel
         mainBinding.viewModel = FoodViewModel()
+        rv.addItemDecoration(ComItemDecorate())
 
         btnJump.setOnClickListener {
             Intent(this, GridLayoutManagerActivity::class.java)

@@ -2,6 +2,7 @@ package com.dashingqi.module.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_grid_layout_manager.*
 
 class GridLayoutManagerActivity : AppCompatActivity() {
@@ -37,6 +38,7 @@ class GridLayoutManagerActivity : AppCompatActivity() {
             items.add(food)
         }
         var adapter = GridLayoutAdapter(items)
+        //rv.addItemDecoration(ComItemDecorate())
         rv.adapter = adapter
     }
 }
