@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.dashingqi.dqcommonutils.DensityUtils
@@ -59,11 +60,12 @@ class StickHeaderItemDecoration(var callBack: StickHeaderCallBack) : RecyclerVie
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
 
-        //首先画一个矩形 ，矩形高度为16
+        //首先画一个矩形 ，矩形高度为30
         var childCount = parent.childCount
         for (index in 0 until childCount) {
             val itemView = parent.getChildAt(index)
             val position = parent.getChildAdapterPosition(itemView)
+            Log.d("ItemDecoration ----> ", "position ---> $position + ----> $itemView")
             if (callBack != null) {
                 var groupInfo = callBack.getGroupInfo(position)
                 if (groupInfo != null && groupInfo.isFirst()) {
