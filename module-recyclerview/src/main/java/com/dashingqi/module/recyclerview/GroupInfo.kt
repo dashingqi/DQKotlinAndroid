@@ -11,7 +11,12 @@ package com.dashingqi.module.recyclerview
  */
 class GroupInfo(var groupId: Int, var groupTitle: String) {
     var position: Int = 0
+    var groupLength: Int = 0
     fun isFirst(): Boolean {
         return position == 0
+    }
+
+    fun isLast(): Boolean {
+        return position == groupLength - 1 && position >= 0
     }
 }

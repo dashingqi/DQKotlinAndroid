@@ -56,6 +56,11 @@ class StickHeaderItemDecoration(var callBack: StickHeaderCallBack) : RecyclerVie
 
     /**
      * 在ItemView之上绘制的
+     *
+     * StickHeader效果的分析
+     * 1. 当前的ItemView不是屏幕上第一个可见View，但是组内第一个可见ItemView，所以需要保持它绘制StickHeader的View
+     * 2. 当前的ItemView不是屏幕上的第一个可见View，也不是组内第一个可见IteView，就不需要保持它绘制StickHeaderView
+     * 3. 当前的ItemView是屏幕上的第一个可见View，不管是不是组内的第一个可见ItemView，都需要它绘制StickHeader的View
      */
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         super.onDrawOver(c, parent, state)
@@ -68,27 +73,15 @@ class StickHeaderItemDecoration(var callBack: StickHeaderCallBack) : RecyclerVie
             Log.d("ItemDecoration ----> ", "position ---> $position + ----> $itemView")
             if (callBack != null) {
                 var groupInfo = callBack.getGroupInfo(position)
-                if (groupInfo != null && groupInfo.isFirst()) {
-                    val rectLeft = parent.paddingLeft
-                    val rectRight = parent.width - parent.paddingRight
-                    if (index != 0) {
-                        if (groupInfo.isFirst()) {
-                            val top = itemView.top - DensityUtils.dip2pxInt(parent.context, 30f)
-                            val bottom = itemView.top
-                            drawRecAndText(
-                                rectLeft,
-                                top,
-                                rectRight,
-                                bottom,
-                                c,
-                                groupInfo.groupTitle,
-                                parent.context
-                            )
-                        }
-
-                    } else {
-                        val top = parent.paddingTop
-                        val bottom = top + DensityUtils.dip2pxInt(parent.context, 30f)
+                val rectLeft = parent.paddingLeft
+                val rectRight = parent.width - parent.paddingRight
+                // 不是屏幕第一个可见的ItemView，但是是组内第一个可见的ItemView
+                if (index != 0) {
+                    if (groupInfo.isFirst()) {
+                        //要绘制标题栏的顶部坐标
+                        val top = itemView.top - DensityUtils.dip2pxInt(parent.context, 30f)
+                        //要绘制标题栏的底部坐标
+                        val bottom = itemView.top
                         drawRecAndText(
                             rectLeft,
                             top,
@@ -99,6 +92,29 @@ class StickHeaderItemDecoration(var callBack: StickHeaderCallBack) : RecyclerVie
                             parent.context
                         )
                     }
+
+                } else {
+                    // 屏幕第一个可见的ItemView
+                    var top = parent.paddingTop
+                    var tempTop = 0
+                    //是组内最后一个可见的ItemView
+                    if (groupInfo.isLast()) {
+                        //拿到要绘制标题栏的顶部坐标
+                        tempTop = itemView.bottom - DensityUtils.dip2pxInt(parent.context, 30f)
+                        if (tempTop < top) {
+                            top = tempTop
+                        }
+                    }
+                    val bottom = top + DensityUtils.dip2pxInt(parent.context, 30f)
+                    drawRecAndText(
+                        rectLeft,
+                        top,
+                        rectRight,
+                        bottom,
+                        c,
+                        groupInfo.groupTitle,
+                        parent.context
+                    )
                 }
             }
         }

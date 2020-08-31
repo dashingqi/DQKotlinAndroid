@@ -22,6 +22,7 @@ class StickHeaderActivity : AppCompatActivity() {
                 var groupPosition = position % 20
                 var groupInfo = GroupInfo(currentGroup, "第${currentGroup}组")
                 groupInfo.position = groupPosition
+                groupInfo.groupLength =20
                 return groupInfo
             }
         }
