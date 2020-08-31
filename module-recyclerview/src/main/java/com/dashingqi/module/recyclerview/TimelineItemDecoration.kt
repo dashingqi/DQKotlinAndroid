@@ -20,6 +20,7 @@ class TimelineItemDecoration : RecyclerView.ItemDecoration() {
     private val offset = 120
 
     init {
+        //设置画笔
         paint.isAntiAlias = true
         paint.style = Paint.Style.FILL_AND_STROKE
         paint.color = Color.RED
