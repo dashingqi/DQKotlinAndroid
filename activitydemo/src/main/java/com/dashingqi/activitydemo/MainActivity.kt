@@ -10,6 +10,7 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        findViewById<Button>(R.id.btn_toast)
 
         // Kotlin编程的项目，在gradle中新增了 apply plugin: 'kotlin-android-extensions' 这个插件，
         // 该插件会根据布局文件中定义的控件Id自动生成一个相同变量名称的变量，
