@@ -42,6 +42,15 @@
             android:text="photo wall"
             app:layout_constraintTop_toBottomOf="@+id/btnStickHeader" />
 
+        <Button
+            android:id="@+id/btnHoriScrollPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="scroll_pager"
+            app:layout_constraintTop_toBottomOf="@+id/btnPhotoWall" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
@@ -52,7 +61,7 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPhotoWall" />
+            app:layout_constraintTop_toBottomOf="@+id/btnHoriScrollPager" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,6 +36,12 @@ class MainActivity : AppCompatActivity() {
                 startActivity(this)
             }
         }
+
+        btnHoriScrollPager.setOnClickListener {
+            Intent(this, HorizontalScrollPageActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 //        rv.adapter = RVAdapter(data)
     }
 
