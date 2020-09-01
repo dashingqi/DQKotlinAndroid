@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.dashingqi.dqcommonutils.DensityUtils
@@ -30,9 +31,14 @@ class HorizontalScrollPageActivity : AppCompatActivity() {
             ) {
                val childPosition =  parent.getChildAdapterPosition(view)
                 if (childPosition==0) {
+//                    outRect.left = DensityUtils.dip2pxInt(parent.context, 16f)
                 }else{
                     outRect.left = DensityUtils.dip2pxInt(parent.context, 6f)
                 }
+
+//                if (childPosition == 6){
+//                    outRect.left = DensityUtils.dip2pxInt(parent.context, 16f)
+//                }
             }
         })
         dataBinding.viewModel = HorizontalScrollPageViewModel()
