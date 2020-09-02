@@ -45,7 +45,7 @@ class RvAutoViewModel : ViewModel() {
     fun loadMoreData() {
         for (index in 0 until 10) {
             val food = Food()
-            food.name = "name $index 加载更多"
+            food.name = "name $index 这是加载更多的数据"
             food.desc = "desc $index 加载更多的数据"
             val position = (Math.random() * (imgUrls.size - 1)).toInt()
             food.imgUrl = imgUrls[position]
