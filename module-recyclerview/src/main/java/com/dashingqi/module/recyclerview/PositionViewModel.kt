@@ -27,8 +27,9 @@ class PositionViewModel : ViewModel() {
         "https://img.fulaishiji.com/images/goods/19653/middle/c31cca8b-7468-4d5f-a06c-8427a7d01656_800x800.jpg"
     )
 
-    val items = ObservableArrayList<Food>()
+    val items = ArrayList<Food>()
     val itemBinding = ItemBinding.of<Food>(BR.item, R.layout.rv_item)
+
     init {
         for (index in 0 until 200) {
             val food = Food()

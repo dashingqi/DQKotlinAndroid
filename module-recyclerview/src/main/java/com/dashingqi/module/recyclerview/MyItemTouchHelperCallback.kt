@@ -50,9 +50,8 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        if (touchHelperListener != null) {
+        if (touchHelperListener != null)
             return touchHelperListener.onMove(viewHolder.adapterPosition, target.adapterPosition)
-        }
         return false
     }
 
@@ -60,7 +59,9 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
      * 侧边滑动删除
      */
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        TODO("Not yet implemented")
+            if (touchHelperListener!=null){
+                touchHelperListener.onSwiped(viewHolder.adapterPosition)
+            }
     }
 
     /**

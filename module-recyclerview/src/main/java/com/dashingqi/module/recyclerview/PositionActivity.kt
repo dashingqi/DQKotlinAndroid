@@ -99,13 +99,20 @@ class PositionActivity : AppCompatActivity(),
         })
     }
 
+    //在这里处理滑动删除的逻辑
     override fun onSwiped(adapterPosition: Int) {
-        TODO("Not yet implemented")
+        if (viewModel.items.isNotEmpty()) {
+            viewModel.items.removeAt(adapterPosition)
+            positionRv.adapter?.notifyItemRemoved(adapterPosition)
+        }
     }
 
+    //在这里处理移动
     override fun onMove(currentPosition: Int, targetPosition: Int): Boolean {
         if (viewModel.items.isNotEmpty()) {
+            // 交换位置
             Collections.swap(viewModel.items, currentPosition, targetPosition)
+            // 通知数据变化，同时给一个动画
             positionRv.adapter?.notifyItemMoved(currentPosition, targetPosition)
             return true
         }
