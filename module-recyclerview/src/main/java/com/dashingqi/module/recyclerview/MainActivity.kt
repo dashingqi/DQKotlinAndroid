@@ -56,7 +56,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(this)
             }
         }
-//        rv.adapter = RVAdapter(data)
+
+        btnRvAuto.setOnClickListener {
+            Intent(this, RvAutoActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
     }
 
 }

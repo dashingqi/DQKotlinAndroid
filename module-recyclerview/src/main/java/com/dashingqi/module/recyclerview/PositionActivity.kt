@@ -79,6 +79,10 @@ class PositionActivity : AppCompatActivity() {
                 //获取到的是 所有Item的数量
                 val itemCount = manager.itemCount
                 Log.d("itemCount", "$itemCount")
+
+                // manager获取的childCount 等同于 rv.childCount 获取到的是可见区域内的ItemView数量
+                val childCount = manager.childCount
+                Log.d("childCount ", "$childCount")
             }
         })
     }

@@ -65,6 +65,13 @@
             android:text="rv position"
             app:layout_constraintTop_toBottomOf="@+id/btnLayoutControllerAnim" />
 
+        <Button
+            android:id="@+id/btnRvAuto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rv auto"
+            app:layout_constraintTop_toBottomOf="@+id/btnPosition" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
