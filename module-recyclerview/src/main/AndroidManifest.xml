@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RvAnimationActivity"></activity>
+        <activity android:name=".PositionActivity"></activity>
+        <activity android:name=".RvAnimationActivity" />
         <activity android:name=".HorizontalScrollPageActivity" />
         <activity android:name=".PhotoWallActivity" />
         <activity android:name=".StickHeaderActivity" />

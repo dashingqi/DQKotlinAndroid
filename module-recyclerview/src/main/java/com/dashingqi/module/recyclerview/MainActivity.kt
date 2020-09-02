@@ -50,6 +50,12 @@ class MainActivity : AppCompatActivity() {
                 startActivity(this)
             }
         }
+
+        btnPosition.setOnClickListener {
+            Intent(this, PositionActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
 //        rv.adapter = RVAdapter(data)
     }
 

@@ -6,11 +6,10 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding
 
 /**
  * @author : zhangqi
- * @time : 2020/8/30
+ * @time : 2020/9/2
  * desc :
  */
-class FoodViewModel: ViewModel() {
-
+class PositionViewModel : ViewModel() {
     private var imgUrls = mutableListOf(
         "https://img.fulaishiji.com/images/goods/19883/big/03957c4d-6869-4cef-ad3e-824852f9da2b_800x800.png",
         "https://img.fulaishiji.com/images/goods/19307/big/e2635d9a-d5eb-4acf-b08c-44483a8554e2_800x800.jpg",
@@ -40,5 +39,4 @@ class FoodViewModel: ViewModel() {
             items.add(food)
         }
     }
-
 }

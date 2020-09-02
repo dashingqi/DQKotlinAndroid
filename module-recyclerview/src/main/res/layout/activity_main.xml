@@ -46,17 +46,24 @@
             android:id="@+id/btnHoriScrollPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="scroll_pager"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="scroll_pager"
             app:layout_constraintTop_toBottomOf="@+id/btnPhotoWall" />
 
         <Button
             android:id="@+id/btnLayoutControllerAnim"
-            app:layout_constraintTop_toBottomOf="@+id/btnHoriScrollPager"
-            android:text="layout controller"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="layout controller"
+            app:layout_constraintTop_toBottomOf="@+id/btnHoriScrollPager" />
+
+        <Button
+            android:id="@+id/btnPosition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="rv position"
+            app:layout_constraintTop_toBottomOf="@+id/btnLayoutControllerAnim" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -66,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:overScrollMode="never"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLayoutControllerAnim" />
