@@ -7,20 +7,32 @@ import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dashingqi.dqcommonutils.DensityUtils
 import com.dashingqi.module.recyclerview.databinding.ActivityPositionBinding
 import kotlinx.android.synthetic.main.activity_position.*
+import java.util.*
 
-class PositionActivity : AppCompatActivity() {
+class PositionActivity : AppCompatActivity(),
+    MyItemTouchHelperCallback.MyItemTouchHelperCallbackListener {
+    val viewModel by lazy {
+        ViewModelProvider(this)[PositionViewModel::class.java]
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val positionDataBinding = DataBindingUtil.setContentView<ActivityPositionBinding>(
             this,
             R.layout.activity_position
         )
-        positionDataBinding.viewModel = ViewModelProvider(this)[PositionViewModel::class.java]
+
+        positionDataBinding.viewModel = viewModel
+
+        val itemTouchHelperCall = MyItemTouchHelperCallback(this)
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCall)
+        itemTouchHelper.attachToRecyclerView(positionRv)
 
         positionRv.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
@@ -85,5 +97,18 @@ class PositionActivity : AppCompatActivity() {
                 Log.d("childCount ", "$childCount")
             }
         })
+    }
+
+    override fun onSwiped(adapterPosition: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onMove(currentPosition: Int, targetPosition: Int): Boolean {
+        if (viewModel.items.isNotEmpty()) {
+            Collections.swap(viewModel.items, currentPosition, targetPosition)
+            positionRv.adapter?.notifyItemMoved(currentPosition, targetPosition)
+            return true
+        }
+        return false
     }
 }
