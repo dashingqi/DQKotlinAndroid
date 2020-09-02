@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/module-databinding" />
             <option value="$PROJECT_DIR$/module-kotlin-base" />
             <option value="$PROJECT_DIR$/module-lambda" />
+            <option value="$PROJECT_DIR$/module-material" />
             <option value="$PROJECT_DIR$/module-recyclerview" />
             <option value="$PROJECT_DIR$/module-room" />
             <option value="$PROJECT_DIR$/module-test-dqpay" />

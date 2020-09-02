@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CornerSize50Percent">
+        <!--
+        Sets size of corners to be 50% of min(width, height) of widget
+        -->
+        <item name="cornerSize">40%</item>
+    </style>
+
+    <!-- res/values/styles.xml -->
+    <style name="Widget.App.ShapeableImageView" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="shapeAppearance">
+            ?attr/shapeAppearanceSmallComponent
+        </item>
+        <item name="shapeAppearanceOverlay">
+            @style/CornerSize50Percent
+        </item>
+<!--        <item name="strokeWidth">1dp</item>-->
+<!--        <item name="strokeColor">?attr/colorPrimary</item>-->
+    </style>
+
+</resources>
