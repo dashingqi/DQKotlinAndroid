@@ -32,6 +32,7 @@ class PositionActivity : AppCompatActivity(),
 
         val itemTouchHelperCall = MyItemTouchHelperCallback(this)
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCall)
+        // ItemTouchHelper与RecyclerView进行绑定
         itemTouchHelper.attachToRecyclerView(positionRv)
 
         positionRv.addItemDecoration(object : RecyclerView.ItemDecoration() {

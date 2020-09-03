@@ -14,6 +14,7 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
 
     /**
      * 移动的标识
+     * 就是当我们滑动或者拖拽的时候，需要我们告诉系统方向
      */
     override fun getMovementFlags(
         recyclerView: RecyclerView,
@@ -23,7 +24,15 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
         if (layoutManager is LinearLayoutManager) {
             val linearLayoutManager: LinearLayoutManager = layoutManager as LinearLayoutManager
             val orientation: Int = linearLayoutManager.getOrientation()
+
+            /**
+             * 拖拽
+             */
             var dragFlag = 0
+
+            /**
+             * 滑动删除
+             */
             var swipeFlag = 0
 
             // 为了方便理解，相当于分为横着的ListView和竖着的ListView
@@ -32,7 +41,7 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
                 swipeFlag = ItemTouchHelper.UP or ItemTouchHelper.DOWN
                 dragFlag = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
             } else if (orientation == LinearLayoutManager.VERTICAL) {
-                // 如果是竖向的布局，相当于ListView
+                // 如果是竖向的布局
                 dragFlag = ItemTouchHelper.UP or ItemTouchHelper.DOWN
                 swipeFlag = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
             }
