@@ -24,8 +24,8 @@ android {
         }
     }
 
-    dataBinding{
-        enabled true
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -45,5 +45,6 @@ dependencies {
     implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0'
     implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0'
     implementation 'com.dashingqi:DQCommonUtils:0.9.9'
+    implementation 'com.github.rubensousa:gravitysnaphelper:2.2.1'
 
 }
