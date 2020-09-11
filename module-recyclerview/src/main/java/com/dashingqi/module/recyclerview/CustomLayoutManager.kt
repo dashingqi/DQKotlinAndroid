@@ -20,7 +20,7 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
     private var itemReacts = ArrayList<Rect>()
 
     /**
-     * 该方法是RecyclerView中Item的布局参数
+     * 该方法返回的是RecyclerView中Item的布局参数
      */
     override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams {
         return RecyclerView.LayoutParams(
@@ -76,7 +76,7 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
             itemView?.let {
                 addView(it)
                 //测量一下view
-                measureChildWithMargins(itemView!!, 0, 0)
+                measureChildWithMargins(it, 0, 0)
                 var decoratedHeight = getDecoratedMeasuredHeight(it)
                 var decoratedWidth = getDecoratedMeasuredWidth(it)
                 layoutDecorated(it, 0, offsetY, decoratedWidth, offsetY + decoratedHeight)
