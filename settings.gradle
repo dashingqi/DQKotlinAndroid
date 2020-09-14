@@ -1,3 +1,4 @@
+include ':module-designpatternes'
 include ':module-inflate'
 include ':module-material'
 include ':module-recyclerview'
