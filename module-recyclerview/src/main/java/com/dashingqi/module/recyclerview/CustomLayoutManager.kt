@@ -59,15 +59,15 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
          */
         detachAndScrapAttachedViews(recycler!!)
         //申请一个ViewHolder
-        var childView = recycler?.getViewForPosition(0)
+        val childView = recycler?.getViewForPosition(0)
         //先测量
         measureChildWithMargins(childView, 0, 0)
         //然后获取到宽，高
-        var measuredHeight = getDecoratedMeasuredHeight(childView)
-        var measuredWidth = getDecoratedMeasuredWidth(childView)
+        val measuredHeight = getDecoratedMeasuredHeight(childView)
+        val measuredWidth = getDecoratedMeasuredWidth(childView)
 
         //计算屏幕中可见的Item个数
-        var itemVisible = getVerticalSpace() / measuredHeight
+        val itemVisible = getVerticalSpace() / measuredHeight
 
         var offsetY = 0
 
@@ -77,8 +77,8 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
                 addView(it)
                 //测量一下view
                 measureChildWithMargins(it, 0, 0)
-                var decoratedHeight = getDecoratedMeasuredHeight(it)
-                var decoratedWidth = getDecoratedMeasuredWidth(it)
+                val decoratedHeight = getDecoratedMeasuredHeight(it)
+                val decoratedWidth = getDecoratedMeasuredWidth(it)
                 layoutDecorated(it, 0, offsetY, decoratedWidth, offsetY + decoratedHeight)
                 offsetY = offsetY.plus(decoratedHeight)
             }
@@ -86,7 +86,7 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
 
             //遍历每一个item的位置，用Rect来保存
             for (position in 0 until itemCount) {
-                var rect = Rect(0, offsetY, measuredWidth, measuredHeight + offsetY)
+                val rect = Rect(0, offsetY, measuredWidth, measuredHeight + offsetY)
                 itemReacts.add(rect)
                 offsetY += measuredHeight
             }
@@ -94,8 +94,8 @@ class CustomLayoutManager : RecyclerView.LayoutManager() {
 
             //遍历当前屏幕显示出来的item
             for (position in 0 until itemVisible) {
-                var rect = itemReacts[position]
-                var itemView = recycler.getViewForPosition(position)
+                val rect = itemReacts[position]
+                val itemView = recycler.getViewForPosition(position)
                 //添加View 因为之前调用了detachAndScrapAttachedViews()方法，所以需要将View添加一下
                 addView(itemView)
                 //测量
