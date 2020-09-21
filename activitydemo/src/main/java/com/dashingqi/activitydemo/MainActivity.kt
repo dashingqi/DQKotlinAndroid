@@ -1,6 +1,7 @@
 package com.dashingqi.activitydemo
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,20 @@ class MainActivity : AppCompatActivity() {
 
             //Kotlin中的SecondActivity::class.java 相当于Java中的 SecondActivity.class的写法
             var intent = Intent(this, SecondActivity::class.java);
+
+
+        //    intent.setClass(this, SecondActivity::class.java)
+
+            //setClassName
+//            intent.setClassName(
+//                "com.dashingqi.activitydemo",
+//                "com.dashingqi.activitydemo.SecondActivity"
+//            )
+//
+//
+//            //setComponent()
+            intent.component = ComponentName(this, SecondActivity::class.java)
+
             startActivity(intent)
         }
 
@@ -44,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent("com.dashingqi.kotlin.second_activity")
             startActivity(intent)
+
+
         }
 
         btn_use_local_browser.setOnClickListener { listener ->
