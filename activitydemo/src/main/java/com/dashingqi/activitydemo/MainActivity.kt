@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
         btn_show_intent.setOnClickListener { listener ->
 
             //Kotlin中的SecondActivity::class.java 相当于Java中的 SecondActivity.class的写法
-            var intent = Intent(this, SecondActivity::class.java);
+            var intent = Intent()
 
 
-        //    intent.setClass(this, SecondActivity::class.java)
+            //intent.setClass(this, SecondActivity::class.java)
 
             //setClassName
 //            intent.setClassName(
@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 //
 //            //setComponent()
             intent.component = ComponentName(this, SecondActivity::class.java)
+            intent.data = Uri.parse("http")
 
             startActivity(intent)
         }

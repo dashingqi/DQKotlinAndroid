@@ -32,6 +32,8 @@
                 <action android:name="com.dashingqi.kotlin.second_activity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http:"/>
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
