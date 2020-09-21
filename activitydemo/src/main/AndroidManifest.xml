@@ -24,7 +24,10 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity
+            android:name=".SecondActivity"
+            android:launchMode="singleTask"
+            >
             <intent-filter>
                 <action android:name="com.dashingqi.kotlin.second_activity" />
 
