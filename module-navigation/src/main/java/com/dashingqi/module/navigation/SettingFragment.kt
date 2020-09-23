@@ -1,6 +1,7 @@
 package com.dashingqi.module.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,14 +28,16 @@ class SettingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initBackListener()
+//        val name = SettingFragmentArgs.fromBundle(requireArguments()).name!!
+//        Log.d("tag name == ", name)
 
     }
 
 
     private fun initBackListener() {
         btnSetting.setOnClickListener {
-            Navigation.findNavController(btnSetting)
-                .popBackStack()
+//            Navigation.findNavController(btnSetting)
+//                .popBackStack()
         }
     }
 }

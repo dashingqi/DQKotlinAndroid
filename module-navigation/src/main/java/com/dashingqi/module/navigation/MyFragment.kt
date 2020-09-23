@@ -32,8 +32,11 @@ class MyFragment : Fragment() {
 
     private fun initClickListener() {
         btnMy.setOnClickListener {
-            Navigation.findNavController(btnMy)
-                .navigate(R.id.action_myFragment_to_settingFragment)
+            //使用 safe arg 来传递数据
+//            var action =
+//                MyFragmentDirections.actionMyFragmentToSettingFragment("this")
+//            Navigation.findNavController(btnMy)
+//                .navigate(action)
         }
     }
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/myFragment">
+    app:startDestination="@id/settingFragment">
 
     <!--  startDestination  指定的是   Navigation 整个页面跳转管理栈的最根级页面-->
 
@@ -11,15 +11,31 @@
     <fragment
         android:id="@+id/myFragment"
         android:name="com.dashingqi.module.navigation.MyFragment"
-        android:label="MyFragment">
-        <action
-            android:id="@+id/action_myFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+        android:label="MyFragment"
+        tools:layout="@layout/fragment_my_layout">
+        <!--        事件-->
+<!--        <action-->
+<!--            android:id="@+id/action_myFragment_to_settingFragment"-->
+<!--            app:destination="@id/settingFragment" />-->
     </fragment>
 
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.dashingqi.module.navigation.SettingFragment"
-        tools:layout="SettingFragment" />
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting_layout">
+
+<!--        <argument-->
+<!--            android:name="name"-->
+<!--            android:defaultValue="0"-->
+<!--            app:argType="string"-->
+<!--            app:nullable="true" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dashingqi.module.navigation.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home_layout" />
 
 </navigation>
