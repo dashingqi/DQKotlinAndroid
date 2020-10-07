@@ -1,3 +1,4 @@
+include ':module-aop'
 include ':module-navigation'
 include ':module-window'
 include ':module-designpatternes'
