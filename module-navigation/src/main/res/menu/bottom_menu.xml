@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    这里面的id 要和 navigation中的 fragment的id要对应上，不然点击底部切换不会起效果的-->
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@mipmap/ic_launcher"
+        android:title="home" />
+
+    <item
+        android:id="@+id/myFragment"
+        android:icon="@null"
+        android:title="" />
+
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@mipmap/ic_launcher"
+        android:title="setting" />
+
+</menu>

@@ -15,6 +15,8 @@ import java.lang.StringBuilder
 class MainActivity : AppCompatActivity() {
 
 
+    var function: ((a: Int, b: Int) -> Unit)? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,11 +43,16 @@ class MainActivity : AppCompatActivity() {
 //        testAsParameter()
 
         testAsReturnValue()
+        //具体的lambda表达式体
+        function = { a, b ->
+            println("a == $a, b=== $b")
+        }
 
         btnStandMethod.setOnClickListener {
-            Intent(this, KotlinStandMethod::class.java).apply {
-                startActivity(this)
-            }
+            function?.invoke(4, 5)
+//            Intent(this, KotlinStandMethod::class.java).apply {
+//                startActivity(this)
+//            }
         }
 
         btnInLineMethod.setOnClickListener {
@@ -342,5 +349,19 @@ class MainActivity : AppCompatActivity() {
         var invokeData = InvokeData("this is name")
         invokeData()
     }
+
+
+    private fun lambdaNoParams() {
+
+        //声明一个lambda表达式
+        var function = { println("test") }
+        //执行lambda表达式
+        function()
+    }
+
+    private fun lambdaWithParams() {
+        var function = { a: Int, b: Int -> println("test") }
+    }
+
 
 }

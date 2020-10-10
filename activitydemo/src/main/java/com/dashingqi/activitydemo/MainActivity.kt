@@ -1,6 +1,7 @@
 package com.dashingqi.activitydemo
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         findViewById<Button>(R.id.btn_toast)
 
+        val msg = 1
+
+        Log.d(TAG, "${sum(1, 2)}")
+        println("-----> ${1}")
+        arrayExample()
+
         // Kotlin编程的项目，在gradle中新增了 apply plugin: 'kotlin-android-extensions' 这个插件，
         // 该插件会根据布局文件中定义的控件Id自动生成一个相同变量名称的变量，
         // lambda表达式
@@ -36,7 +43,22 @@ class MainActivity : AppCompatActivity() {
         btn_show_intent.setOnClickListener { listener ->
 
             //Kotlin中的SecondActivity::class.java 相当于Java中的 SecondActivity.class的写法
-            var intent = Intent(this, SecondActivity::class.java);
+            var intent = Intent()
+
+
+            //intent.setClass(this, SecondActivity::class.java)
+
+            //setClassName
+//            intent.setClassName(
+//                "com.dashingqi.activitydemo",
+//                "com.dashingqi.activitydemo.SecondActivity"
+//            )
+//
+//
+//            //setComponent()
+            intent.component = ComponentName(this, SecondActivity::class.java)
+            intent.data = Uri.parse("http")
+
             startActivity(intent)
         }
 
@@ -44,6 +66,8 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent("com.dashingqi.kotlin.second_activity")
             startActivity(intent)
+
+
         }
 
         btn_use_local_browser.setOnClickListener { listener ->
@@ -127,4 +151,18 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
+
+
+    private fun sum(a: Int, b: Int): Int = a + b
+
+    //数组
+    private fun arrayExample() {
+        //[1,2,3] 第一种创建方式：使用arrayOf()
+        val a = arrayOf(1, 2, 3)
+        println("----> ${a[0]}")   //输出结果：1
+        //[0,2,4]
+        val b = Array(3) { i -> (i * 2) }
+        println("----> ${b[1]}")   //输出结果：2
+    }
 }
+

@@ -63,6 +63,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnCustomerLayoutManager.setOnClickListener {
+            Intent(this, MyCustomerLayoutManagerActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
     }
 
 }
