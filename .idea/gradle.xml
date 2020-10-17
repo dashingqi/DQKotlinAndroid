@@ -16,14 +16,19 @@
             <option value="$PROJECT_DIR$/kotlinfunctionproject" />
             <option value="$PROJECT_DIR$/lifecycledemo" />
             <option value="$PROJECT_DIR$/livedatademo" />
+            <option value="$PROJECT_DIR$/module-aop" />
             <option value="$PROJECT_DIR$/module-databinding" />
+            <option value="$PROJECT_DIR$/module-designpatternes" />
             <option value="$PROJECT_DIR$/module-inflate" />
             <option value="$PROJECT_DIR$/module-kotlin-base" />
             <option value="$PROJECT_DIR$/module-lambda" />
             <option value="$PROJECT_DIR$/module-material" />
+            <option value="$PROJECT_DIR$/module-navigation" />
             <option value="$PROJECT_DIR$/module-recyclerview" />
             <option value="$PROJECT_DIR$/module-room" />
+            <option value="$PROJECT_DIR$/module-startup" />
             <option value="$PROJECT_DIR$/module-test-dqpay" />
+            <option value="$PROJECT_DIR$/module-window" />
             <option value="$PROJECT_DIR$/uidemo" />
             <option value="$PROJECT_DIR$/viewmodeldemo" />
           </set>
