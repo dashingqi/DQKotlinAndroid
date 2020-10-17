@@ -22,9 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         findViewById<Button>(R.id.btn_toast)
-
         val msg = 1
-
         Log.d(TAG, "${sum(1, 2)}")
         println("-----> ${1}")
         arrayExample()
@@ -33,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         // 该插件会根据布局文件中定义的控件Id自动生成一个相同变量名称的变量，
         // lambda表达式
         btn_toast.setOnClickListener { listener ->
-            Toast.makeText(this, "展示 吐司", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "展示 吐司", Toast.LENGTH_SHORT).show()
+            Thread(Runnable {
+                var name = Thread.currentThread().name
+                Log.d("tag", "$name")
+                btn_toast.text = "子线程"
+            }).start()
         }
 
         btn_finish.setOnClickListener { listener ->
@@ -163,6 +166,31 @@ class MainActivity : AppCompatActivity() {
         //[0,2,4]
         val b = Array(3) { i -> (i * 2) }
         println("----> ${b[1]}")   //输出结果：2
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, ": onStart");
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: ");
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ");
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: ");
+    }
+
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
     }
 }
 
