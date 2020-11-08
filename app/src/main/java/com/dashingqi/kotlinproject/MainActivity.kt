@@ -1,9 +1,16 @@
 package com.dashingqi.kotlinproject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.dashingqi.kotlinproject.compare.CompareMain
+import com.dashingqi.kotlinproject.compare.PersonComapre
+import java.lang.StringBuilder
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,5 +40,27 @@ class MainActivity : AppCompatActivity() {
         //直接访问属性，但是调用的是getter
         println(person.name);
         println(person.age)
+
+
+        val persons =
+            arrayOf(
+                com.dashingqi.kotlinproject.compare.Person(
+                    67,
+                    "zhangqi"
+                ), com.dashingqi.kotlinproject.compare.Person(63, "dashingqi")
+            )
+        Log.d(TAG, "比较之前${get(persons)}")
+
+        //使用了自定义比较器，Person类完全不用做任何修改
+        Arrays.sort(persons, PersonComapre())
+        Log.d(TAG, "比较之后${get(persons)}")
+    }
+
+    fun get(array: Array<com.dashingqi.kotlinproject.compare.Person>): String {
+        return StringBuilder().apply {
+            array.forEach {
+                this.append(it.toString())
+            }
+        }.toString()
     }
 }

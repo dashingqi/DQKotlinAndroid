@@ -1,3 +1,4 @@
+include ':module-kotlin-appoint'
 include ':module-startup'
 include ':module-aop'
 include ':module-navigation'
