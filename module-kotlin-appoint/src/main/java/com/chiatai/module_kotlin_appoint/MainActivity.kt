@@ -91,5 +91,10 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "x = $x y =$y ")
 
+
+        val (name, extension) = separateFile("java.kt")
+
+        Log.d(TAG, "name = $name extension = $extension")
+
     }
 }

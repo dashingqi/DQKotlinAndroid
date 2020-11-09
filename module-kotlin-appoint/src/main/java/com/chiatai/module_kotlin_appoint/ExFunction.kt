@@ -76,3 +76,8 @@ operator fun MutablePoint.set(index: Int, value: Int) {
 operator fun Rectangle.contains(p: Point): Boolean {
     return p.x in upperLeft.x until lowerRight.x && p.y in upperLeft.y until lowerRight.y
 }
+
+fun separateFile(fileName: String): NameComponents {
+    val (name, extension) = fileName.split(".", limit = 2)
+    return NameComponents(name, extension)
+}
