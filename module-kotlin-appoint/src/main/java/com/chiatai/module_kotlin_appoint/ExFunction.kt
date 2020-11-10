@@ -1,5 +1,6 @@
 package com.chiatai.module_kotlin_appoint
 
+import android.util.Log
 import java.math.BigDecimal
 
 /**
@@ -7,6 +8,8 @@ import java.math.BigDecimal
  * @time : 2020/11/8
  * desc :
  */
+
+private const val TAG = "ExFunction"
 
 // =================== 重载算数运算符 ===========================
 operator fun Point.plus(other: Point): Point {
@@ -81,3 +84,11 @@ fun separateFile(fileName: String): NameComponents {
     val (name, extension) = fileName.split(".", limit = 2)
     return NameComponents(name, extension)
 }
+
+fun printMap(map: Map<String, String>) {
+    for ((key, value) in map) {
+        Log.d(TAG, " key == $key  value == $value")
+    }
+}
+
+//惰性初始化是当第一次访问该属性的时候，才根据需要创建该属性

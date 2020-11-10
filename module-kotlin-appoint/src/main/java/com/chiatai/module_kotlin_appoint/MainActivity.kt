@@ -96,5 +96,13 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "name = $name extension = $extension")
 
+        val map = mutableMapOf<String, String>(Pair("zhang", "java"), Pair("dashing", "ios"))
+
+        val map1 = mapOf<String, String>("zhangqi" to "android", "dashingqi" to "ios")
+
+        printMap(map)
+
+        printMap(map1)
+
     }
 }
