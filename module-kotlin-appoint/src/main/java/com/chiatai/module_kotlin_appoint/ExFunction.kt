@@ -90,5 +90,5 @@ fun printMap(map: Map<String, String>) {
         Log.d(TAG, " key == $key  value == $value")
     }
 }
-
 //惰性初始化是当第一次访问该属性的时候，才根据需要创建该属性
+
