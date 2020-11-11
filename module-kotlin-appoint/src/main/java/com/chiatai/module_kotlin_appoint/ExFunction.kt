@@ -1,5 +1,6 @@
 package com.chiatai.module_kotlin_appoint
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import java.io.Serializable
 import java.math.BigDecimal
 import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
 
 /**
  * @author : zhangqi
@@ -120,5 +122,22 @@ fun <T> Bundle.put(key: String, value: T) {
 }
 
 fun <T : Any> argument(): FragmentDelegate<T> = FragmentDelegate()
+
+/**
+ * SharedPreferences的扩展函数
+ */
+
+fun SharedPreferences.string(
+    defaultValue: String = "",
+    key: (KProperty<*>) -> String = KProperty<*>::name
+): ReadWriteProperty<Any, String> = object : ReadWriteProperty<Any, String> {
+    override fun getValue(thisRef: Any, property: KProperty<*>): String {
+        return getString(key(property), defaultValue) ?: ""
+    }
+
+    override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
+        edit().putString(key(property), value).apply()
+    }
+}
 
 

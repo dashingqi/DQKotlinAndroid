@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
  */
 class DelegateFragment : Fragment() {
 
-    private var int1: Int by argument()
+
 
 
     companion object {
         fun newInstance(int1: Int, str2: String) {
             DelegateFragment().apply {
-                this.int1 = int1
+
             }
         }
     }
