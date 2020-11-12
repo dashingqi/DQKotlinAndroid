@@ -119,6 +119,9 @@ fun <T> Bundle.put(key: String, value: T) {
     }
 }
 
-fun <T : Any> argument(): FragmentDelegate<T> = FragmentDelegate()
+
+fun <T:Any> fragmentArgument():ReadWriteProperty<Fragment,T> = FragmentArgumentDelegate()
+
+fun <T:Any> fragmentNullArgument():ReadWriteProperty<Fragment,T?> = FragmentNullArgumentDelegate()
 
 
