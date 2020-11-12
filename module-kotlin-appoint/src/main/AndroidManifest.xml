@@ -3,6 +3,7 @@
     package="com.chiatai.module_kotlin_appoint">
 
     <application
+        android:name=".AppointApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

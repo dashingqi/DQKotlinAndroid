@@ -3,8 +3,10 @@ package com.chiatai.module_kotlin_appoint
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.chiatai.module_kotlin_appoint.sp.SPDelegate
 import java.math.BigDecimal
 import java.time.LocalDate
 
@@ -103,6 +105,15 @@ class MainActivity : AppCompatActivity() {
         printMap(map)
 
         printMap(map1)
+
+        //
+
+
+        var spValue: String by SPDelegate("spValue", "12")
+//
+        spValue = "134"
+        Log.e(TAG, "onCreate: ${spValue}")
+
 
     }
 }
