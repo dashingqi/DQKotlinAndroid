@@ -55,7 +55,7 @@ operator fun BigDecimal.dec() = this - BigDecimal.ONE
 // 在Kotlin中 如果使用  == 运算符 它将被转换成 equals 方法调用
 // 使用 != 运算符也会被转换成 equals函数调用
 
-// == 和 != 可以用于可空运算书数，这些运算数事实上会先检查运算数是否为null，比较 a==b 会检查 a是否为非空，如果不是 就调用 a.equals(b)
+// == 和 != 可以用于可空运算数，这些运算数事实上会先检查运算数是否为null，比较 a==b 会检查 a是否为非空，如果不是 就调用 a.equals(b)
 // 否则两个参数都是空引用，结果才是true
 
 // a == b  -----> a?.equals(b) ?: (b==null)

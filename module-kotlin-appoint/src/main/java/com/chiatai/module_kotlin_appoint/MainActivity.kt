@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         //
 
 
+
         var spValue: String by SPDelegate("spValue", "12")
 //
         spValue = "134"
