@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutDisabledMessage="@string/label_name_one"
+        android:shortcutId="one"
+        android:shortcutLongLabel="@string/label_name_one"
+        android:shortcutShortLabel="@string/label_name_one">
+        <!--        返回的activity-->
+        <intent
+            android:action="com.dashingqi.shortcut.back"
+            android:targetClass="com.dashingqi.shortcuts.BackActivity"
+            android:targetPackage="com.dashingqi.shortcuts" />
+
+        <!--        跳转的目标activity -->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.dashingqi.shortcuts.OneActivity"
+            android:targetPackage="com.dashingqi.shortcuts" />
+    </shortcut>
+
+</shortcuts>

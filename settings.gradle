@@ -1,3 +1,4 @@
+include ':module-shortcuts'
 include ':module-arithmetic'
 include ':module-kotlin-appoint'
 include ':module-startup'
