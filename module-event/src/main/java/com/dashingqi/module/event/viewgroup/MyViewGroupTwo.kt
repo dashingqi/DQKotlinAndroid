@@ -35,9 +35,29 @@ class MyViewGroupTwo : RelativeLayout {
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         ev?.let {
+
             MotionEventUtils.printEvent(ev.action, "onInterceptTouchEvent", TAG)
+            when (ev.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    return false
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    //拦截事件
+                    return true
+                }
+
+                MotionEvent.ACTION_UP -> {
+                    return true
+                }
+                else ->
+                    return false
+            }
+
+
         }
-        return super.onInterceptTouchEvent(ev)
+
+        return false
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {

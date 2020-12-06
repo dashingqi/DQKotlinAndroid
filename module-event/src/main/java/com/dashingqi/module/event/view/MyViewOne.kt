@@ -10,6 +10,8 @@ import com.dashingqi.dqcommonutils.MotionEventUtils
  * @author : zhangqi
  * @time : 12/5/20
  * desc :
+ *
+ *
  */
 class MyViewOne : View {
 
@@ -36,6 +38,11 @@ class MyViewOne : View {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event?.let {
             MotionEventUtils.printEvent(event.action, "onTouchEvent", TAG)
+            when(event.action){
+                MotionEvent.ACTION_DOWN ->{
+                    parent.requestDisallowInterceptTouchEvent(true)
+                }
+            }
         }
         return super.onTouchEvent(event)
     }
