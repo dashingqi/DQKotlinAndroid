@@ -145,7 +145,7 @@ class InverseGroupView : LinearLayout {
         @JvmStatic
         @BindingAdapter(value = ["index"], requireAll = true)
         fun setIndex(inverseGroupView: InverseGroupView, index: Int) {
-            if (inverseGroupView.selectIndex == index) return
+            //if (inverseGroupView.selectIndex == index) return
             inverseGroupView.selectIndex = index
             inverseGroupView.refreshSelectedIndex(index)
         }

@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
  */
 class InverseBean {
 
-    var index = MutableLiveData(0)
+    var index = DiffLiveData<Int>(0)
 
     var tagList = ObservableArrayList<String>()
 }
