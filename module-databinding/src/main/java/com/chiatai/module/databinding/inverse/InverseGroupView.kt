@@ -75,7 +75,7 @@ class InverseGroupView : LinearLayout {
             tvTagView.text = any as String
             //设置一下点击事件
             tagView.setOnClickListener {
-                //应该是更新下布局上按钮的状态
+                //要更新下布局上按钮的状态
                 refreshSelectedIndex(index)
             }
             // 将View添加到父布局中

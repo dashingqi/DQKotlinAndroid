@@ -1,5 +1,6 @@
 package com.chiatai.module.databinding.inverse
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -10,6 +11,10 @@ import androidx.lifecycle.ViewModel
 class InverseViewModel : ViewModel() {
 
     var inverseBean = InverseBean()
+
+    var etText = MutableLiveData<String>("")
+
+    var checkBoxStatus = MutableLiveData<Boolean>(false)
 
     init {
         var lists = arrayListOf("tag1", "tag2", "tag3", "tag4", "tag5")
