@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.dashingqi.module.recyclerview.databinding.ActivityMainBinding
+import com.dashingqi.module.recyclerview.diff.DiffUtilActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -65,6 +66,12 @@ class MainActivity : AppCompatActivity() {
 
         btnCustomerLayoutManager.setOnClickListener {
             Intent(this, MyCustomerLayoutManagerActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
+        btnDiffUtil.setOnClickListener {
+            Intent(this, DiffUtilActivity::class.java).apply {
                 startActivity(this)
             }
         }
