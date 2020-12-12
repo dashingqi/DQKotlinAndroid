@@ -1,5 +1,6 @@
 package com.chiatai.module_kotlin_appoint
 
+import android.app.Activity
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +11,7 @@ import com.chiatai.module_kotlin_appoint.sp.SPDelegate
 import java.math.BigDecimal
 import java.time.LocalDate
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     private val TAG = "MainActivity"
 
     @RequiresApi(Build.VERSION_CODES.O)
