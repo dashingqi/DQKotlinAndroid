@@ -76,4 +76,11 @@
         android:text="体验Activity的生米周期"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_activity_result" />
 
+    <TextView
+        android:id="@+id/tvDrawable"
+        app:layout_constraintTop_toBottomOf="@+id/btn_taste_activity_life"
+        android:text="获取到drawable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

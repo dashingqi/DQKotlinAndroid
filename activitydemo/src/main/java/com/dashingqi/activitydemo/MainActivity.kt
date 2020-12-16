@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         findViewById<Button>(R.id.btn_toast)
+        var background = tvDrawable.background
+        Log.d(TAG, "$background")
         val msg = 1
         Log.d(TAG, "${sum(1, 2)}")
         println("-----> ${1}")
