@@ -1,6 +1,10 @@
 package com.dashingqi.module_arithmetic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import kotlin.collections.ArraysKt;
 
 /**
  * @ProjectName: KotlinProject
@@ -64,5 +68,57 @@ public class ArithmeticFile {
         }
 
         return res;
+    }
+
+
+    /**
+     * 平衡分割字符串
+     * 输入：s = "RLRRLLRLRL"
+     * 输出：4
+     * 解释：s 可以分割为 "RL", "RRLL", "RL", "RL", 每个子字符串中都包含相同数量的 'L' 和 'R'。
+     */
+    public static int balancedSplitStr(String targetStr) {
+        //剩余判断的字符串
+        String surplusStr = targetStr;
+        List splitList = new ArrayList<String>();
+        //当剩余未判断的字符串长度大于0
+        while (surplusStr.length() > 0) {
+            // 拿到剩余未判断的字符串
+            surplusStr = balanceSplitUtil(surplusStr)[1];
+            //拿到符合条件的字符串 添加到集合中
+            splitList.add(balanceSplitUtil(surplusStr)[0]);
+        }
+        //返回符合条件的切割数
+        return splitList.size();
+
+    }
+
+    private static String[] balanceSplitUtil(String surplusStr) {
+
+        String justStr = "";
+
+        for (int i = 1; i < surplusStr.length(); i++) {
+
+            justStr = surplusStr.substring(0, i);
+            //分别用于此次字符串中 L和R出现的次数
+            int leftNumber = 0, rightNumber = 0;
+
+            for (int j = 0; j < justStr.length(); j++) {
+                if (justStr.charAt(j) == 'L') {
+                    leftNumber++;
+                } else if (justStr.charAt(j) == 'R') {
+                    rightNumber++;
+                }
+            }
+
+            if (leftNumber == rightNumber) {
+                //将本次符合条件的字符串和剩余未判断字符串返回回去
+                return new String[]{justStr, surplusStr.substring(i)};
+            } else {
+                continue;
+            }
+
+        }
+        return new String[]{"", ""};
     }
 }
