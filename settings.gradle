@@ -1,3 +1,4 @@
+include ':module-net'
 include ':module-java'
 include ':module-animation'
 include ':module-event'
