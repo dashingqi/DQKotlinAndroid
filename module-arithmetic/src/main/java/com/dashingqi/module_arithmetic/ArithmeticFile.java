@@ -121,4 +121,50 @@ public class ArithmeticFile {
         }
         return new String[]{"", ""};
     }
+
+
+    /**
+     * 实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。
+     * 输入: "Hello"
+     * 输出: "hello"
+     * 输入: "here"
+     * 输出: "here"
+     */
+    public static String toLowerCase(String str) {
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<str.length();i++){
+            char tempC = str.charAt(i);
+            if(tempC>='A' && tempC<='Z'){
+                tempC+=32;
+            }
+            sb.append(tempC);
+        }
+        return sb.toString();
+    }
+
+
+    /**
+     * 给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。
+     * 输入："Let's take LeetCode contest"
+     * 输出："s'teL ekat edoCteeL tsetnoc"
+     * @param s
+     * @return
+     */
+    public String reverseWords(String s) {
+            //切割字符串
+            String[] tempStrArray = s.split(" ");
+            StringBuilder sb = new StringBuilder();
+            StringBuilder tempSb = new StringBuilder();
+            //将子字符串进行反转
+            for(int i=0;i<tempStrArray.length;i++){
+                tempSb.delete(0, tempSb.length());
+                sb.append(tempSb.append(tempStrArray[i]).reverse().toString());
+                if(i < tempStrArray.length-1){
+                    sb.append(" ");
+                }
+            }
+            return sb.toString();
+
+    }
 }
