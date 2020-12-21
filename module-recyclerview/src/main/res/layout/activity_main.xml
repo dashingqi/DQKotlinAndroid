@@ -79,6 +79,13 @@
             android:text=" customer layout manager"
             app:layout_constraintTop_toBottomOf="@+id/btnRvAuto" />
 
+        <Button
+            android:id="@+id/btnDiffUtil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="diff util user"
+            app:layout_constraintTop_toBottomOf="@+id/btnCustomerLayoutManager" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"

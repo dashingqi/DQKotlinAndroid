@@ -31,5 +31,6 @@ class FragmentNullArgumentDelegate<T:Any?>:ReadWriteProperty<Fragment,T?> {
         value?.let {
             bundle.put(key,it)
         }?:bundle.remove(key)
+
     }
 }

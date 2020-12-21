@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/activitydemo" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/coroutines" />
+            <option value="$PROJECT_DIR$/kotlinfunctionproject" />
+            <option value="$PROJECT_DIR$/lifecycledemo" />
+            <option value="$PROJECT_DIR$/livedatademo" />
+            <option value="$PROJECT_DIR$/module-animation" />
+            <option value="$PROJECT_DIR$/module-aop" />
+            <option value="$PROJECT_DIR$/module-arithmetic" />
+            <option value="$PROJECT_DIR$/module-databinding" />
+            <option value="$PROJECT_DIR$/module-designpatternes" />
+            <option value="$PROJECT_DIR$/module-event" />
+            <option value="$PROJECT_DIR$/module-inflate" />
+            <option value="$PROJECT_DIR$/module-java" />
+            <option value="$PROJECT_DIR$/module-kotlin-appoint" />
+            <option value="$PROJECT_DIR$/module-kotlin-base" />
+            <option value="$PROJECT_DIR$/module-lambda" />
+            <option value="$PROJECT_DIR$/module-material" />
+            <option value="$PROJECT_DIR$/module-navigation" />
+            <option value="$PROJECT_DIR$/module-net" />
+            <option value="$PROJECT_DIR$/module-recyclerview" />
+            <option value="$PROJECT_DIR$/module-room" />
+            <option value="$PROJECT_DIR$/module-shortcuts" />
+            <option value="$PROJECT_DIR$/module-startup" />
+            <option value="$PROJECT_DIR$/module-test-dqpay" />
+            <option value="$PROJECT_DIR$/module-window" />
+            <option value="$PROJECT_DIR$/uidemo" />
+            <option value="$PROJECT_DIR$/viewmodeldemo" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

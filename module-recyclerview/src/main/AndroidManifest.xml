@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyCustomerLayoutManagerActivity"></activity>
+        <activity android:name=".diff.DiffUtilActivity"></activity>
+        <activity android:name=".MyCustomerLayoutManagerActivity" />
         <activity android:name=".RvAutoActivity" />
         <activity android:name=".PositionActivity" />
         <activity android:name=".RvAnimationActivity" />
