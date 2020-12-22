@@ -1,5 +1,6 @@
 package com.dashingqi.module.net
 
+import com.dashingqi.dqhttp.call.BaseCallAdapterFactory
 import com.dashingqi.dqhttp.service.NetService
 import com.dashingqi.dqhttp.service.NetServiceBuilder
 
@@ -19,10 +20,9 @@ object Service {
         netServiceBuilder.setBaseUrl("https://www.wanandroid.com")
             .setIgnoreSSl(true)
             .setOkHttpClientBuilder {
-
             }
             .setRetrofitBuilder {
-
+                it.addCallAdapterFactory(BaseCallAdapterFactory())
             }
 
         return netServiceBuilder.builder()

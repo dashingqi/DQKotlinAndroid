@@ -53,5 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        Service.netService.create(IWanAndroid::class.java).getChapters1()
+
     }
 }
