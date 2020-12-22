@@ -1,5 +1,6 @@
 package com.dashingqi.module_arithmetic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,5 +26,60 @@ public class ArithmeticBackUpFile {
         return index;
     }
 
+    /**
+     * "RLRRLLRLRL"
+     *
+     * @param s
+     * @return
+     */
+    public int balancedStringSplit(String s) {
+        ArrayList<String> lists = new ArrayList();
 
+
+        //用于记录剩下未判断的字符串
+        String tempStr = s;
+        while (tempStr.length() > 0) {
+            tempStr = utils(tempStr)[1];
+            lists.add(utils(tempStr)[0]);
+        }
+        return lists.size();
+    }
+
+    public String[] utils(String str) {
+        String tempStr = "";
+        for (int i = 1; i < str.length(); i++) {
+            tempStr = str.substring(0, i);
+            int lCount = 0;
+            int rCount = 0;
+            for (int j = 0; j < tempStr.length(); j++) {
+                if (tempStr.charAt(j) == 'L') {
+                    lCount++;
+                } else if (tempStr.charAt(j) == 'R') {
+                    rCount++;
+                }
+            }
+            if (lCount == rCount) {
+                return new String[]{tempStr, str.substring(i)};
+            } else {
+                continue;
+            }
+        }
+        return new String[]{"", ""};
+    }
+
+    public static int balancedStringSplit1(String s) {
+        int res = 0;
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'L') {
+                count++;
+            } else if (s.charAt(i) == 'R') {
+                count--;
+            }
+            if (count == 0) {
+                res++;
+            }
+        }
+        return res;
+    }
 }

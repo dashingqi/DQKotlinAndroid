@@ -14,5 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         var balancedSplitStr = ArithmeticFile.balancedSplitStr("RLLLLRRRLR")
         Log.d(TAG, "size ---> $balancedSplitStr")
+
+        var balancedStringSplit1 = ArithmeticBackUpFile.balancedStringSplit1("RLLLLRRRLR")
+        Log.d(TAG, "size balanced ---> $balancedStringSplit1");
     }
 }
