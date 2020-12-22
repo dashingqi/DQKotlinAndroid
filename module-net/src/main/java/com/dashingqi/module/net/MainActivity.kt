@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import okhttp3.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
@@ -28,14 +31,26 @@ class MainActivity : AppCompatActivity() {
 
         // newOkHttpClient.newCall(request) 创建了一个可执行的call对象
         // call.enqueue方法进行 异步请求
-        newOkHttpClient.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
+//        newOkHttpClient.newCall(request).enqueue(object : Callback {
+//            override fun onFailure(call: Call, e: IOException) {
+//                Log.d(TAG, "onFailure")
+//            }
+//
+//            override fun onResponse(call: Call, response: Response) {
+//                Log.d(TAG, "onResponse ");
+//            }
+//        })
+
+        //发起网络请求，请求
+        Service.netService.create(IWanAndroid::class.java).getChapters().enqueue(object:Callback<BaseResponse>{
+            override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
+                Log.d(TAG, "onResponse ")
+            }
+
+            override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
                 Log.d(TAG, "onFailure")
             }
 
-            override fun onResponse(call: Call, response: Response) {
-                Log.d(TAG, "onResponse ");
-            }
         })
 
     }
