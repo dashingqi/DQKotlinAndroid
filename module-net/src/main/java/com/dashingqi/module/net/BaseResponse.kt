@@ -12,11 +12,15 @@ class BaseResponse : IResponse {
         return ""
     }
 
+    override fun isCodeError(): Boolean {
+        return false
+    }
+
     override fun isSuccess(): Boolean {
         return true
     }
 
     override fun isTokenError(): Boolean {
-        return true
+        return false
     }
 }

@@ -3,6 +3,7 @@ package com.dashingqi.module.net
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import okhttp3.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -42,18 +43,28 @@ class MainActivity : AppCompatActivity() {
 //        })
 
         //发起网络请求，请求
-        Service.netService.create(IWanAndroid::class.java).getChapters().enqueue(object:Callback<BaseResponse>{
-            override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
-                Log.d(TAG, "onResponse ")
-            }
+        Service.netService.create(IWanAndroid::class.java).getChapters()
+            .enqueue(object : Callback<BaseResponse> {
+                override fun onResponse(
+                    call: Call<BaseResponse>,
+                    response: Response<BaseResponse>
+                ) {
+                    Log.d(TAG, "onResponse ")
+                }
 
-            override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
-                Log.d(TAG, "onFailure")
-            }
+                override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
+                    Log.d(TAG, "onFailure")
+                }
 
-        })
+            })
 
         Service.netService.create(IWanAndroid::class.java).getChapters1()
+            .doOnResponseSuccess { call, response ->
+                Toast.makeText(this, "请求成了", Toast.LENGTH_LONG).show()
+            }
+            .doOnFailure {
+                Toast.makeText(this, "失败了", Toast.LENGTH_LONG).show()
+            }
 
     }
 }
