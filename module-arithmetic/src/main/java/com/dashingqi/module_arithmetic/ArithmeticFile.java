@@ -166,6 +166,50 @@ public class ArithmeticFile {
             }
         }
         return sb.toString();
+    }
 
+
+    /**
+     *  给定两个字符串 s1 和 s2，请编写一个程序，确定其中一个字符串的字符重新排列后，能否变成另一个字符串。
+     * @param s1
+     * @param s2
+     * @return
+     *
+     * 输入: s1 = "abc", s2 = "bca"
+     * 输出: true
+     *
+     * 输入: s1 = "abc", s2 = "bad"
+     * 输出: false
+     *
+     * 首先得判断字符串得长度是否相等
+     *
+     * 然后拿到s2中得某一个字符去s1中找 没找到就返回true （这个没找到说明 index ==-1）
+     */
+    public static boolean CheckPermutation(String s1, String s2) {
+        if (s1.length()!=s2.length()){
+            return false;
+        }
+
+        String tempStr = s2;
+        for (int i=0;i<s1.length();i++){
+            int tempIndex = tempStr.indexOf(s1.charAt(i));
+            if (tempIndex == -1){
+                return false;
+            }else{
+                tempStr = deleteCharByIndex(tempStr,tempIndex);
+            }
+        }
+
+        return  true;
+    }
+
+    /**
+     * 删除指定位置得char
+     * @param tempStr
+     * @param index
+     * @return
+     */
+    private static String deleteCharByIndex(String tempStr,int index){
+        return tempStr.substring(0,index)+tempStr.substring(index+1);
     }
 }
