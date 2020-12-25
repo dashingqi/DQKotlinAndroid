@@ -41,5 +41,6 @@ class MainActivity : AppCompatActivity() {
 
         proxy.method1()
         proxy.method2()
+
     }
 }
