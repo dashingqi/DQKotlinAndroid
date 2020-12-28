@@ -1,3 +1,4 @@
+include ':module-life'
 include ':module-net'
 include ':module-java'
 include ':module-animation'
