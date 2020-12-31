@@ -19,6 +19,7 @@
         </activity>
 
         <service
+            android:process=":myprocess"
             android:name=".TestService"
             android:exported="true" />
     </application>
