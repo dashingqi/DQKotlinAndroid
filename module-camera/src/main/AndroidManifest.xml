@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dashingqi.module.camera">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--    声明了我们的应用程序必须在具有相机的手机上才能运行-->
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true"
+        />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
