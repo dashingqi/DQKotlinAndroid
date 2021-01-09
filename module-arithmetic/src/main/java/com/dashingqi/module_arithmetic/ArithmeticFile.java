@@ -1,6 +1,7 @@
 package com.dashingqi.module_arithmetic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -203,5 +204,58 @@ public class ArithmeticFile {
 
     private static String deleteCharByIndex(String tempStr, int index) {
         return tempStr.substring(0, index) + tempStr.substring(index + 1);
+    }
+
+    /**
+     * 贪心算法
+     * 非升序排列的总列数
+     *
+     * @param A
+     * @return
+     */
+    public int minDeletionSize(String[] A) {
+        int result = 0;
+        int length = A[0].length();
+        // i表示列数
+        for (int i = 0; i < length; i++) {
+            //j 表示行数
+            for (int j = 0; j < A.length; j++) {
+                if (A[j].charAt(i) > A[j + 1].charAt(i)) {
+                    result++;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 给你一个数组 nums，请你从中抽取一个子序列，满足该子序列的元素之和 严格 大于未包含在该子序列中的各元素之和。
+     *
+     * 如果存在多个解决方案，只需返回 长度最小 的子序列。如果仍然有多个解决方案，则返回 元素之和最大 的子序列。
+     *
+     * 与子数组不同的地方在于，「数组的子序列」不强调元素在原数组中的连续性，也就是说，它可以通过从数组中分离一些（也可能不分离）元素得到。
+     *
+     * @param nums
+     * @return
+     */
+    public List<Integer> minSubsequence(int[] nums) {
+
+        List<Integer> resultList = new ArrayList<>();
+        int sum = 0;
+        int count = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        Arrays.sort(nums);
+        for (int i = nums.length - 1; i >= 0; i--) {
+            count += nums[i];
+            resultList.add(nums[i]);
+            if (count > (sum - count)) {
+                return resultList;
+            }
+        }
+        return null;
+
     }
 }

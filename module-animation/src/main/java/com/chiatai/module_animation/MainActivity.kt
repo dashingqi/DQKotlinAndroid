@@ -1,5 +1,6 @@
 package com.chiatai.module_animation
 
+import android.animation.ValueAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,5 +26,29 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, ": copy success")
             }
         }
+
+        // 创建了一个值从 0到4000的动画
+        var animator = ValueAnimator.ofInt(0, 400)
+        //设置执行时间
+        animator.duration = 1000
+
+        animator.addUpdateListener { animation ->
+
+            var value = animation.animatedValue as Int
+            hello.layout(value, value, value + hello.width, value + hello.height)
+            Log.d("value = ", "$value")
+        }
+
+        //开始动画
+        //animator.start()
+
+        var floatAnimator = ValueAnimator.ofFloat(0f, 400f, 100f, 300f)
+        floatAnimator.addUpdateListener { animation ->
+            var floatValue = animation.animatedValue as Float
+            var intValue = floatValue.toInt()
+            hello.layout(intValue,intValue,intValue+hello.width,intValue+hello.height)
+        }
+        floatAnimator.duration = 2000
+        floatAnimator.start()
     }
 }
