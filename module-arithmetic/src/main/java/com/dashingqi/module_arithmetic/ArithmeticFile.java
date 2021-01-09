@@ -231,9 +231,9 @@ public class ArithmeticFile {
 
     /**
      * 给你一个数组 nums，请你从中抽取一个子序列，满足该子序列的元素之和 严格 大于未包含在该子序列中的各元素之和。
-     *
+     * <p>
      * 如果存在多个解决方案，只需返回 长度最小 的子序列。如果仍然有多个解决方案，则返回 元素之和最大 的子序列。
-     *
+     * <p>
      * 与子数组不同的地方在于，「数组的子序列」不强调元素在原数组中的连续性，也就是说，它可以通过从数组中分离一些（也可能不分离）元素得到。
      *
      * @param nums
@@ -257,5 +257,31 @@ public class ArithmeticFile {
         }
         return null;
 
+    }
+
+    /**
+     * 小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。你购入了 numBottles 瓶酒。
+     * <p>
+     * 如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。
+     * <p>
+     * 请你计算 最多 能喝到多少瓶酒。
+     */
+
+    public static int numWaterBottles(int numBottles, int numExchange) {
+        //喝过的瓶数
+        int drinkNum = numBottles;
+        int bottleCount = numBottles;
+
+        while (bottleCount >= numExchange) {
+            //喝过的瓶子能换几个
+            int tempDrinkBottles = bottleCount / numExchange;
+            //喝过的瓶子中 还剩几个不能换
+            int restBottleCount = bottleCount % numExchange;
+            // 重新计算喝过的瓶子
+            drinkNum += tempDrinkBottles;
+            bottleCount = tempDrinkBottles + restBottleCount;
+        }
+
+        return drinkNum;
     }
 }
