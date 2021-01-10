@@ -298,4 +298,18 @@ public class ArithmeticFile {
         }
         return maxPrice;
     }
+
+
+    public int maxSubArray(int[] nums) {
+        int[] dp = new int[nums.length];
+        dp[0] = Math.max(dp[0], 0);
+        int max = Math.max(dp[0], 0);
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = nums[i] + Math.max(dp[i - 1], 0);
+            if (dp[i] > max) {
+                max = dp[i];
+            }
+        }
+        return max;
+    }
 }
