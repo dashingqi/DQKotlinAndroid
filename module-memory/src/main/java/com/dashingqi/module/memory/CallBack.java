@@ -7,5 +7,7 @@ package com.dashingqi.module.memory;
  */
 interface CallBack {
 
+    int a = 0;
+
     void doSomething();
 }

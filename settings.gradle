@@ -1,3 +1,4 @@
+include ':module-ipc'
 include ':module-memory'
 include ':module-camera'
 include ':module-service'

@@ -17,3 +17,30 @@ https://blog.csdn.net/littlehaes/article/details/105241194
 - 正常我们的 .java文件 经过编译器 编译成.class文件 这个.class在 java中对应这个类对象（需要和类的对象作为区分）
 - Java本身是面向对象的语言，它也会把类对象抽象成 一个类 Class
 - Class （Field，Method，Constructor）
+
+#### equals 和 hashcode
+
+####### equals
+是Object中的一个方法，所有集成Object的类都会有该方法，在Object类中该方法是用来比较两个实例的内存地址值是否相等
+对于其他重写equals方法的类中
+先比较内存地址值是否一样
+再者比较类型是否一致
+最后比较值是否一样
+
+###### hashcode
+是Object中的native方法，继承Object类都会有这个方法。
+会针对不同的对象返回不同的整数（通过该对象的内存地址转换成一个整数）
+
+为何要一起重写？
+主要为了效率考虑
+
+先调用这个对象的hashCode方法获取到一个值，根据这个值计算出这个元素所在的位置，如果位置上没有元素就放置上去
+如果有了就调用equals()进行比较
+
+重写规则
+
+x.equasl(y) == true 那么x.hashCode == x.hashCode
+x.equasl(y) == false 那么x.hashCode == y.hashCode 也可以不相等
+如果 x.hascode != y.hashcode 那么 x.equals(y)==false
+
+hascode 是系统用来快速检索对象而使用的。
