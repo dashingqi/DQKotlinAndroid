@@ -19,5 +19,9 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "size balanced ---> $balancedStringSplit1");
 
         ArithmeticFile.numWaterBottles(10,3)
+
+        var arrayOf = arrayOf(1, 4, 7, 8, 4, 7, 3, 4, 523, 341, 3, 2)
+        var maxProfit = ArithmeticFile.maxProfit(arrayOf.toIntArray())
+        Log.d(TAG, "maxProfit = $maxProfit")
     }
 }

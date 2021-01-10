@@ -284,4 +284,18 @@ public class ArithmeticFile {
 
         return drinkNum;
     }
+
+    // ======================= 动态规划 =======================
+
+    public static int maxProfit(int[] prices) {
+        int maxPrice = 0;
+        for (int i = prices.length - 1; i >= 0; i--) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (prices[i] - prices[j] > maxPrice) {
+                    maxPrice = prices[i] - prices[j];
+                }
+            }
+        }
+        return maxPrice;
+    }
 }
