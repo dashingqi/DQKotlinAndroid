@@ -18,7 +18,8 @@ Binder本身是C/S架构，
 Binder的性能更好，只需要一次数据拷贝
 Binder更安全，可以得到对方的身份标识（UID/GID）
 
-系统根据AIDL文件自动生成的的类
+系统根据AIDL文件自动生成的`的类
+系统根据AIDL文件自动生成的`的类
 
 IXXXX extends IInterface
 
