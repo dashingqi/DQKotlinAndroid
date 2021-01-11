@@ -28,7 +28,7 @@ asInterface() 将服务端的Binder对象转换成客户端所需的AIDL接口�
 
 asBinder() 返回当前的Binder对象
 
-onTransact() 运行在服务端的Binder线程池中，远程请求回通过系统底层封装后交由此方法来处理。
+onTransact() 运行在服务端的Binder线程池中，远程请求会通过系统底层封装后交由此方法来处理。
 
 in：数据由客户端流向服务端
 out：数据由服务端流向了客户端
