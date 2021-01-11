@@ -64,5 +64,15 @@ OkHttp 使用的就是 Http2.0 Http2.0相比较于Http1.0 有以下的性能提�
 5、TCP首部开销20字节;UDP的首部开销小，只有8个字节
 6、TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道
 
+#### http 消息体讲一下。消息首行的方法有哪几种？
+http 请求行 请求头 请求体
+消息首行：get，post，put（“替换”资源） PATCH方法用于“部分修改”资源
+消息体：
+
+
+http post 请求上传大文件，如何实现？分块上传呢？用到的关键 Header 有哪些？
+
+关键Header 就是 duo part  multipart/form-data：
+
 
 

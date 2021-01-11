@@ -1,3 +1,4 @@
+include ':module-baidu'
 include ':module-notification'
 include ':module-ipc'
 include ':module-memory'
