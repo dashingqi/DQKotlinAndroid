@@ -18,4 +18,13 @@ client端被Service端 阻塞
 #### choreograhpher
 内部的关键是postCallback 向系统底层注册接受vsync信号，进行屏幕的绘制
 
+#### Application中不能显示Dialog
+
+- Dialog是属于子Window  系统Window 应用Window 系统子Window
+
+- Dialog能在Activity中显示出来，得益于Token这个Binder对象，而这个Token对象是在ActivityRecord中创建的，
+一个ActivityRecord代表这一个Activity，我们这个Dialog 通过WMS 通过这个Binder 能添加到 系统Window上。
+
+
+
 

@@ -38,6 +38,24 @@ public class ArithmeticFile {
         return index;
     }
 
+    public static int[] numberOnew(int[] nums, int target) {
+
+        int[] index = new int[2];
+        HashMap<Integer, Integer> maps = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (maps.containsKey(nums[i])) {
+                index[0] = i;
+                index[1] = maps.get(nums[i]);
+            }
+
+            maps.put(target - nums[i], i);
+        }
+
+        return index;
+    }
+
+
     /**
      * 整数的反转 采用数学公式的计算
      * 假设我们的环境只能存储得下 32 位的有符号整数，
@@ -287,6 +305,17 @@ public class ArithmeticFile {
 
     // ======================= 动态规划 =======================
 
+    /***
+     *
+     *
+     * 输入: [7,1,5,3,6,4]
+     * 输出: 5
+     * 解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+     * 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。
+     *
+     *
+     */
+
     public static int maxProfit(int[] prices) {
         int maxPrice = 0;
         for (int i = prices.length - 1; i >= 0; i--) {
@@ -313,6 +342,24 @@ public class ArithmeticFile {
         return max;
     }
 
+    public int maxSubArrays(int[] nums) {
+
+
+        int[] dp = new int[nums.length];
+
+        dp[0] = Math.max(dp[0], 0);
+        int max = Math.max(dp[0], 0);
+
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = nums[i] + Math.max(dp[i - 1], 0);
+            if (dp[i] > max) {
+                max = dp[i];
+            }
+        }
+
+        return max;
+    }
+
 
     /**
      * 数字N如果是奇数，它的约数必然都是奇数；若为偶数，则其约数可奇可偶。
@@ -332,8 +379,8 @@ public class ArithmeticFile {
      * <p>
      * 注意：给定 n 是一个正整数。
      * <p>
-     *
-     *
+     * <p>
+     * <p>
      * 示例 1：
      * <p>
      * 输入： 2
@@ -341,20 +388,18 @@ public class ArithmeticFile {
      * 解释： 有两种方法可以爬到楼顶。
      * 1.  1 阶 + 1 阶
      * 2.  2 阶
-     *
-     *
+     * <p>
+     * <p>
      * 示例 2：
      * <p>
      * 输入： 3
      * 输出： 3
      * 解释： 有三种方法可以爬到楼顶。
-     *
-     *
+     * <p>
+     * <p>
      * 1.  1 阶 + 1 阶 + 1 阶
      * 2.  1 阶 + 2 阶
      * 3.  2 阶 + 1 阶
-     *
-     *
      */
 
     public int climbStairs(int n) {
@@ -366,4 +411,18 @@ public class ArithmeticFile {
         }
         return dp[n];
     }
+
+
+    public int climbStairss(int n) {
+
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i + 2];
+        }
+
+        return dp[n];
+    }
+
 }

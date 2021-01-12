@@ -75,4 +75,13 @@ http post 请求上传大文件，如何实现？分块上传呢？用到的关�
 关键Header 就是 duo part  multipart/form-data：
 
 
+OkHttp的重试机制 （RetryAndFollowUpInterceptor）
+1. 在某些特定的情况下才会进行重试
+
+RouteException：所有网络连接失败的异常，包括IOException中的连接失败异常；
+IOException：除去连接异常的其他的IO异常。
+
+2. 自己可以自定义拦截器 次数可以自己自定义，如果发生异常就重试，这个次数是可控的。
+
+
 
