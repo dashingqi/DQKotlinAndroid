@@ -1,3 +1,4 @@
+include ':module-js'
 include ':module-baidu'
 include ':module-notification'
 include ':module-ipc'
