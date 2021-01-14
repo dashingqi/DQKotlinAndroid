@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 import kotlin.collections.ArraysKt;
 
@@ -423,6 +424,74 @@ public class ArithmeticFile {
         }
 
         return dp[n];
+    }
+
+
+    //    public class ListNode {
+//      int val;
+//      ListNode next;
+//      ListNode(int x) { val = x; }
+//      }
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+
+    }
+
+
+    /**
+     * 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，
+     * 即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，
+     * 它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点。
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode getKthFromEnd(ListNode head, int k) {
+
+        ListNode former = head;
+        ListNode latter = head;
+
+        for (int i = 0; i < k - 1; i++) {
+            latter = latter.next;
+        }
+
+        while (latter.next != null) {
+            latter = latter.next;
+            former = former.next;
+        }
+
+        return former;
+
+    }
+
+
+    /**
+     * 使用栈 将链表入栈
+     *
+     * @param head
+     * @return
+     */
+    public int[] reversePrint(ListNode head) {
+        Stack<ListNode> stack = new Stack<>();
+        ListNode tempNode = head;
+        //将链表入栈
+        while (tempNode != null) {
+            stack.push(tempNode);
+            tempNode = tempNode.next;
+        }
+
+        //打印栈
+        int[] nodes = new int[stack.size()];
+
+        for (int i = 0; i < stack.size(); i++) {
+            //取到值 赋值给node数组
+            nodes[i] = stack.pop().val;
+        }
+
+        return nodes;
+
     }
 
 }
