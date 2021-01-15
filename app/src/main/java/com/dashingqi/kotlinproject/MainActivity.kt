@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         //改变引用执行的对象
         language.add("Kotlin")
 
+        var substring = "kotlin".substring(1)
+        Log.d(TAG, "subString == $substring")
+
 
         val a: Int
         a = 43

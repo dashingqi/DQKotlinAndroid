@@ -6,4 +6,8 @@ package com.dashingqi.kotlinproject
  * desc :
  */
 class StringUtils {
+
+    fun String.subString(rangeIndex:Int){
+
+    }
 }
