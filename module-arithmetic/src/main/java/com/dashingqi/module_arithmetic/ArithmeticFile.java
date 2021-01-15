@@ -416,7 +416,6 @@ public class ArithmeticFile {
 
 
     public int climbStairss(int n) {
-
         int[] dp = new int[n + 1];
         dp[0] = 1;
         dp[1] = 1;
@@ -436,7 +435,6 @@ public class ArithmeticFile {
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;
-
     }
 
 
@@ -450,21 +448,16 @@ public class ArithmeticFile {
      * @return
      */
     public ListNode getKthFromEnd(ListNode head, int k) {
-
         ListNode former = head;
         ListNode latter = head;
-
         for (int i = 0; i < k - 1; i++) {
             latter = latter.next;
         }
-
         while (latter.next != null) {
             latter = latter.next;
             former = former.next;
         }
-
         return former;
-
     }
 
 
@@ -490,9 +483,7 @@ public class ArithmeticFile {
             //取到值 赋值给node数组
             nodes[i] = stack.pop().val;
         }
-
         return nodes;
-
     }
 
 }
