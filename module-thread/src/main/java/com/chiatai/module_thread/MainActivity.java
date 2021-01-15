@@ -11,98 +11,38 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    private ReentrantLock reentrantLock;
-    volatile int index = 0;
-    volatile int flag = 1;
-    private Condition condition;
-    private Condition condition1;
-    private Condition condition2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        reentrantLock = new ReentrantLock();
-        condition = reentrantLock.newCondition();
-        condition1 = reentrantLock.newCondition();
-        condition2 = reentrantLock.newCondition();
-
-
-        new Thread(() -> {
-            printA();
-
-        }).start();
-
-        new Thread(() -> {
-            printB();
-        }).start();
-
-        new Thread(() -> {
-            printC();
-        }).start();
+        MyRunnable myRunnable = new MyRunnable();
+        Thread t1 = new Thread(myRunnable);
+        Thread t2 = new Thread(myRunnable);
+        Thread t3 = new Thread(myRunnable);
+        t1.start();
+        t2.start();
+        t3.start();
 
     }
 
 
-    private void printA() {
-        if (index == 100) {
-            return;
-        }
-        try {
-            reentrantLock.lock();
-            while (flag != 1) {
-                condition.await();
+    class MyRunnable implements Runnable {
+        int index = 0;
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+
+        @Override
+        public void run() {
+            while (index < 100) {
+                reentrantLock.lock();
+                try {
+                    Log.d("=========", Thread.currentThread().getName() + " === index == " + index);
+                    index++;
+
+                } finally {
+                    reentrantLock.unlock();
+                }
             }
-            index++;
-            Log.d(TAG, "thread name " + Thread.currentThread().getName() + "index == " + index);
-            flag = 2;
-            condition1.signal();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-
-    private void printB() {
-        if (index == 100) {
-            return;
-        }
-        try {
-            reentrantLock.lock();
-            while (flag != 2) {
-                condition1.await();
-            }
-            index++;
-            Log.d(TAG, "thread name " + Thread.currentThread().getName() + "index == " + index);
-            flag = 3;
-            condition2.signal();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-
-    private void printC() {
-        if (index == 100) {
-            return;
-        }
-        try {
-            reentrantLock.lock();
-            while (flag != 3) {
-                condition2.await();
-            }
-            index++;
-            Log.d(TAG, "thread name " + Thread.currentThread().getName() + "index == " + index);
-            flag = 1;
-            condition.signal();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            reentrantLock.unlock();
         }
     }
 }
