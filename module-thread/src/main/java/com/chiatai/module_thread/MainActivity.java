@@ -1,9 +1,15 @@
 package com.chiatai.module_thread;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.View;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -37,8 +43,28 @@ public class MainActivity extends AppCompatActivity {
         t22.start();
         t33.start();
 
+
+        //获取IMEI版本号
+
+        findViewById(R.id.find).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String imei = getIMEI();
+                Log.d("imei == ", imei + "");
+
+            }
+        });
+
+
     }
 
+
+    public String getIMEI() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String deviceId = telephonyManager.getDeviceId();
+        return deviceId;
+        //android 10以上已经获取不了imei了 用 android id代替
+    }
 
     class MyRunnable implements Runnable {
         int index = 0;
