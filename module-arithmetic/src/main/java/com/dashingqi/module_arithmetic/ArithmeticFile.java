@@ -489,6 +489,7 @@ public class ArithmeticFile {
 
     /**
      * 合并两个数组
+     *
      * @param nums1
      * @param m
      * @param nums2
@@ -510,5 +511,27 @@ public class ArithmeticFile {
 
         System.arraycopy(nums2, 0, nums1, 0, len2 + 1);
     }
+
+
+    /**
+     * 二叉搜索树
+     * <p>
+     * 根节点要大于左树小于右树，左树要比右树小
+     * <p>
+     * 如果一个比根节点大，一个比根节点小 说是 一个在左树上 一个在右树上，就没有公共的节点·
+     * <p>
+     * 如果两个都比根节点小，说明在左树上，去左树上查找
+     * <p>
+     * 如果两个都比根节点大，说明都在右树上，去右树上查找
+     */
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+        //用于剔去 不在同一个树上的情况
+        while ((root.val - p.val) * (root.val - q.val) > 0)
+            root = p.val < root.val ? root.left : root.right;
+        return root;
+    }
+
 
 }
