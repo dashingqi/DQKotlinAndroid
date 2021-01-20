@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -21,11 +22,21 @@ public class MainActivity extends AppCompatActivity {
 
     private static String number = "0";
 
+     int b = 9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView text= findViewById(R.id.find);
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                text.setText(b+"");
+            }
+        });
+
         MyRunnable myRunnable = new MyRunnable();
         Thread t1 = new Thread(myRunnable);
         Thread t2 = new Thread(myRunnable);

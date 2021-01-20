@@ -3,6 +3,7 @@ package com.dashingqi.module_arithmetic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,5 +24,14 @@ class MainActivity : AppCompatActivity() {
         var arrayOf = arrayOf(1, 4, 7, 8, 4, 7, 3, 4, 523, 341, 3, 2)
         var maxProfit = ArithmeticFile.maxProfit(arrayOf.toIntArray())
         Log.d(TAG, "maxProfit = $maxProfit")
+
+
+    }
+
+
+    fun onClick(){
+        btn.setOnClickListener {
+
+        }
     }
 }
