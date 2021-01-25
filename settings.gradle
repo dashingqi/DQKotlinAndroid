@@ -1,3 +1,4 @@
+include ':module-viewbinding'
 include ':module-thread'
 include ':module-image'
 include ':module-contentprovider'

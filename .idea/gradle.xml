@@ -46,6 +46,7 @@
             <option value="$PROJECT_DIR$/module-startup" />
             <option value="$PROJECT_DIR$/module-test-dqpay" />
             <option value="$PROJECT_DIR$/module-thread" />
+            <option value="$PROJECT_DIR$/module-viewbinding" />
             <option value="$PROJECT_DIR$/module-window" />
             <option value="$PROJECT_DIR$/uidemo" />
             <option value="$PROJECT_DIR$/viewmodeldemo" />
