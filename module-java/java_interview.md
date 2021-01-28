@@ -39,11 +39,11 @@ https://blog.csdn.net/littlehaes/article/details/105241194
 
 重写规则
 
-x.equasl(y) == true 那么x.hashCode == x.hashCode
+x.equasl(y) == true 那么x.hashCode == y.hashCode
 x.equasl(y) == false 那么x.hashCode == y.hashCode 也可以不相等
 如果 x.hascode != y.hashcode 那么 x.equals(y)==false
 
-hascode 是系统用来快速检索对象而使用的。
+hashcode 是系统用来快速检索对象而使用的。
 
 #### GC Root的类型
 
