@@ -4,6 +4,8 @@
 - Request （构建请求的Request）
     - Header
     - Body
+    - 参数
+    
 - Call (构建请求的Call)
 - Call.enqueue/execute （发送网络请求）---> 将请求任务放到一个线程池中
 - Response (Response.body)
