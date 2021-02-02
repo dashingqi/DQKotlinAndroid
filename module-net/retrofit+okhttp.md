@@ -11,6 +11,11 @@
 - Response (Response.body)
 - 在进行数据解析时候需要拿到Response中的Body进行解析后，在进行数据展示，数据展示的时候需要手动切换线程
 
+OkHttp是基于Http协议封装的一套请求客户端，虽然它也可以开线程，但根本上更偏向于真正的请求
+OKHttp主要负责socket部分的优化，比如多路复用，buffer缓存，数据压缩等
+
+
+
 ###### 使用上的一些问题问题
 
 1. 构建网络请求的参数比较麻烦 （body，请求头以及参数）
@@ -35,7 +40,8 @@ Retrofit是对于OkHttp的一层封装
 2. callFactory: 网络请求工厂 ----> OkHttpClient
 3. callbackExecutor:回调方法执行器 -----> 线程切换 使用了handler
 4. 数据转换器 converterFactory
-5. 网络请求适配器 adapterFactory ----> 适配器工程 RxJavaCallAdapterFactory / Call
+5. 网络请求适配器 adapterFactory ----> 适配器工程 RxJavaCallAdapterFactory / Call 
+ ----> 对OkHttpCall对象进行包装，生成对应返回类型的对象
 也可以自定适配器 就是将OkHttp的Call转换成Retrofit的Call
 
 ###### 为什么要有Retrofit
