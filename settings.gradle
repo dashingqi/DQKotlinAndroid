@@ -1,3 +1,4 @@
+include ':module-interview'
 include ':module-viewbinding'
 include ':module-thread'
 include ':module-image'
