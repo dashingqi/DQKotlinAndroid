@@ -39,6 +39,7 @@
 
  height*scale * 宽*scale * 像素的大小
  scale ---> 缩放系数
+ 这个缩放系数 == 设备的dpi/目录对应的dpi
 
  ###### 动态编程
 
