@@ -1,4 +1,3 @@
-include ':module-compose'
 include ':module-interview'
 include ':module-viewbinding'
 include ':module-thread'
