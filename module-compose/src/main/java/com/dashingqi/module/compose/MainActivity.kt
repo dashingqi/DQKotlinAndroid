@@ -10,6 +10,7 @@ import androidx.ui.layout.Column
 import androidx.ui.layout.Row
 import androidx.ui.layout.Spacing
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
                 Row {
                     Text("this is me ")
                     Text("en，i know it")
+                }
+
+                Row() {
+
                 }
             }
         }
