@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -29,9 +30,15 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        useIR = true
     }
 
-    buildFeatures{
+    composeOptions {
+        kotlinCompilerVersion '1.4.21'
+        kotlinCompilerExtensionVersion '1.0.0-alpha10'
+    }
+
+    buildFeatures {
         dataBinding true
         compose true
     }
@@ -48,8 +55,21 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev02'
-    implementation 'androidx.ui:ui-layout:0.1.0-dev02'
-    implementation 'androidx.ui:ui-material:0.1.0-dev02'
+    implementation 'androidx.compose.ui:ui:1.0.0-alpha10'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.0.0-alpha10'
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation 'androidx.compose.foundation:foundation:1.0.0-alpha10'
+    // Material Design
+    implementation 'androidx.compose.material:material:1.0.0-alpha10'
+    // Material design icons
+    implementation 'androidx.compose.material:material-icons-core:1.0.0-alpha10'
+    implementation 'androidx.compose.material:material-icons-extended:1.0.0-alpha10'
+    // Integration with observables
+    implementation 'androidx.compose.runtime:runtime-livedata:1.0.0-alpha10'
+    implementation 'androidx.compose.runtime:runtime-rxjava2:1.0.0-alpha10'
+
+    // UI Tests
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.0-alpha10'
 
 }
