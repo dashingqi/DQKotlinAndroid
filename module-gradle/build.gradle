@@ -30,6 +30,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    task helloWorld {
+        doLast {
+            println "Hello World¡"
+        }
+    }
 }
 
 dependencies {
