@@ -6,7 +6,7 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
@@ -25,10 +25,17 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
-        
+
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task updateTask {
+    doLast {
+        println "perform update"
+    }
+}
+

@@ -36,6 +36,12 @@ android {
             println "Hello World¡"
         }
     }
+
+    task updateTask {
+        doLast {
+            println "perform update"
+        }
+    }
 }
 
 dependencies {
