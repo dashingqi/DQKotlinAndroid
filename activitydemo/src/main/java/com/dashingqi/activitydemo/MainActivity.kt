@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var filesDir = this.filesDir
+        var absolutePath = filesDir.absolutePath
+        Log.d(TAG, "absolutePath == $absolutePath")
         findViewById<Button>(R.id.btn_toast)
         var background = tvDrawable.background
         Log.d(TAG, "$background")
