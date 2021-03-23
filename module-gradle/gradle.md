@@ -127,4 +127,44 @@ perform update
 
 ```
 
+#### Task Actions
+
+一个Task是由一个序列Action组成的，当运行一个Task的时候，这个Task里面的Action序列会按照顺序依次执行。
+Task里的Action只会在该Task真正运行时执行，Gradle里通过doFirst、doLast来为Task增加Action。
+
+- doFirst：task执行时最先执行的操作。
+- doLast: task执行时最后执行的操作。
+
+```aidl
+task task1{
+    println "this is task1"
+}
+
+task task2{
+    println "this is task2"
+}
+
+task1.doFirst{
+    println "task1 doFirst"
+}
+
+task1.doLast{
+    println "task1 doLast"
+}
+
+task2.doLast{
+    println "task2 doLast"
+}
+```
+使用gradle命令执行 task ---> task1,执行结果如下
+
+```aidl
+> Task :module-gradle:task1
+task1 doFirst
+task1 doLast
+:module-gradle:task1 spend 46ms
+```
+
+对于task的Actions只会在Task执行的时候才会执行
+
 

@@ -42,6 +42,26 @@ android {
             println "perform update"
         }
     }
+
+    task task1{
+        println "this is task1"
+    }
+
+    task task2{
+        println "this is task2"
+    }
+
+    task1.doFirst{
+        println "task1 doFirst"
+    }
+
+    task1.doLast{
+        println "task1 doLast"
+    }
+
+    task2.doLast{
+        println "task2 doLast"
+    }
 }
 
 dependencies {
