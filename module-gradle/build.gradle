@@ -39,31 +39,113 @@ android {
         }
     }
 
-    task updateTask {
+//    task updateTask {
+//        doLast {
+//            println "perform update"
+//        }
+//    }
+//
+//    task task1 {
+//        println "this is task1"
+//    }
+//
+//    task task2 {
+//        println "this is task2"
+//    }
+//
+//    task1.doFirst {
+//        println "task1 doFirst"
+//    }
+//
+//    task1.doLast {
+//        println "task1 doLast"
+//    }
+//
+//    task2.doLast {
+//        println "task2 doLast"
+//    }
+
+    // 创建任务
+
+    //使用任务名称创建
+    def Task t1 = task(t1)
+    t1.doLast {
+        println "this is t1"
+    }
+
+    // 任务名称+任务配置创建
+    def Task t3 = task(t3, group: BasePlugin.BUILD_GROUP)
+    t3.doLast {
+        println "this is t3"
+    }
+
+    //TaskContainer的create方法创建
+    //任务的创建都会调用tasks的create方法，其中tasks类型为TaskContainer
+
+    tasks.create(name: "t2") {
         doLast {
-            println "perform update"
+            println "this is t2"
         }
     }
 
-    task task1{
-        println "this is task1"
+    // 任务依赖
+    // 任务依赖会决定任务运行的先后顺序，被依赖的任务会在定义依赖的任务之前执行
+
+    task dep1 {
+        doLast {
+            println "this is dep1"
+        }
     }
 
-    task task2{
-        println "this is task2"
+    task dep2(dependsOn: dep1) {
+        doLast {
+            println "this is dep2"
+        }
     }
 
-    task1.doFirst{
-        println "task1 doFirst"
+    // 动态定义任务
+//    times { number ->
+//        task "time$number" {
+//            doLast {
+//                println "task $number"
+//            }
+//        }
+//
+//    }
+
+    // 任务分组和描述
+    // Gradle有任务组的概念，可以为任务配置分组和描述以便于更好的管理任务
+
+    task g1{
+        group = "baidu"
+        description = "baidu app"
+        doLast{
+            println "任务分组：${group}"
+            println "任务描述：${description}"
+        }
     }
 
-    task1.doLast{
-        println "task1 doLast"
+    task g2(dependsOn: g1){
+        doLast{
+            println "this is g2"
+        }
     }
 
-    task2.doLast{
-        println "task2 doLast"
-    }
+    // Gradle的日志级别
+
+    //Gradle的命令行
+
+    // 获取所欲任务信息：gradle -q tasks
+
+    // 排除任务：gradle g2 -x g1
+
+    //获取任务帮助信息:gradle -q help --task g1
+
+    //多个任务同时调用： gradle g1 g2 :每个任务只会执行一次，无论是在命令行中指定任务还是任务依赖
+
+
+
+
 }
 
 dependencies {
