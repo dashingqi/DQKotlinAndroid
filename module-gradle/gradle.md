@@ -177,5 +177,36 @@ task1 doLast
 构建脚本使用Groovy或者Kotlin编写，
 是Android官方构建工具。
 
+#### Groovy
+Groovy是Apache下的一种基于JVM的面向对象语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言
+
+###### 变量的定义
+Groovy中用def关键字来定义变量,
+我们可以不指定变量的类型，默认的访问修饰符是public
+def a = 1;
+def int b = 2;
+def c = "Hello World"
+
+###### 方法的定义
+方法使用返回值类型或者def关键字定义，方法可以接受任意数量的参数
+def add(int c,int d){
+    println c+d
+}
+
+def minus(e,f){
+    println e-f
+}
+
+如果指定了方法返回类型，可以不需要使用def关键字
+
+int add(int a,int b){
+    return a-b
+}
+
+如果不使用return，方法的返回值为最后一段代码的执行结果
+int add(int a,int b){
+    a+b
+}
+
 
 

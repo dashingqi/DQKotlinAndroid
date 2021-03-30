@@ -116,17 +116,17 @@ android {
     // 任务分组和描述
     // Gradle有任务组的概念，可以为任务配置分组和描述以便于更好的管理任务
 
-    task g1{
+    task g1 {
         group = "baidu"
         description = "baidu app"
-        doLast{
+        doLast {
             println "任务分组：${group}"
             println "任务描述：${description}"
         }
     }
 
-    task g2(dependsOn: g1){
-        doLast{
+    task g2(dependsOn: g1) {
+        doLast {
             println "this is g2"
         }
     }
@@ -143,9 +143,29 @@ android {
 
     //多个任务同时调用： gradle g1 g2 :每个任务只会执行一次，无论是在命令行中指定任务还是任务依赖
 
+    def a = 1;
+    task variable {
+        doLast {
+            println "$a"
+        }
+    }
 
+    task method {
+        doLast {
+            add(2, 3)
+            minus(5, 2)
 
+        }
+    }
 
+}
+
+def add(int e, int b) {
+    println "${e + b}"
+}
+
+def minus(c, d) {
+    println "${c - d}"
 }
 
 dependencies {
