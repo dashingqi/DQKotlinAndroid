@@ -349,9 +349,11 @@ person = [(key):"DashingQi"]
 if(person.containsKey('name')){
     println person[key]
 }
-
-
 ```
+
+#### 闭包
+
+
 
 
 
