@@ -181,6 +181,12 @@ task method1{
  *           3  false
  */
 
+task method2{
+    doLast{
+        assert "zhangqi:${1}".hashCode() != "zhangqi:1".hashCode()
+    }
+}
+
 
 dependencies {
 

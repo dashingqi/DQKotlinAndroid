@@ -289,3 +289,70 @@ switch (y) {
 println value
 ```
 
+#### 字符串
+###### 单引号字符串
+单引号可以定义一个字符串常量，但是不支持插值，
+在Groovy中双引号字符串支持插值
+###### 双引号字符串
+双引号字符串支持插值，插值值得就是替换字符串中的占位符，占位符表达式位${}或者$
+```aidl
+def name = 'dashingqi'
+//插值
+println "hello ${name}"
+println "hello $name"
+```
+###### 三引号字符串
+三引号字符串的特点是可以保留文本的换行和缩进格式，不支持插值。
+```aidl
+def name1 = '''
+       zhangqi
+            dashingqi
+       zhangqi'''
+println name1
+
+```
+
+
+###### GString
+在Groovy中，String是不可变的，GSting是可变的，
+GString类型就是双引号字符串中包含了插值，就是GString类型
+
+#### List
+```aidl
+def number = [1,2,3,4]
+def linkedList instanceof list
+
+println number[1]
+// 索引-1是列表末尾的第一个元素。
+println number[-1]
+
+```
+
+#### Map
+创建Map使用[],需要同时制定Key和Value，默认的实现类位LinkedHashMap
+
+```aidl
+
+def names = [one:'zhangqi',two:'dashingqi',three:'zdq']
+println names['one']
+println names['two']
+
+
+def key = 'name'
+// 此时键对应的值是key这个字符串
+def person = [key:'张琦']
+if(person.containsKey(key)){
+    println person['key']
+}
+// 此时键对应的值是变量key对应的name这个值
+person = [(key):"DashingQi"]
+if(person.containsKey('name')){
+    println person[key]
+}
+
+
+```
+
+
+
+
