@@ -353,6 +353,21 @@ if(person.containsKey('name')){
 
 #### 闭包
 
+闭包的定义
+{params -> statements}
+params：参数部分
+statements：语句部分
+
+
+```aidl
+
+def code = { 123 }
+def isOddNumber = { i -> i % 2 != 0 }
+println isOddNumber(5)
+println code()
+
+```
+
 
 
 
