@@ -208,5 +208,25 @@ int add(int a,int b){
     a+b
 }
 
+###### 类
+class Person {
+    String name
+    Integer age = 20
 
+    def increaseAge(Integer years) {
+        this.age += years
+    }
+}
 
+def p = new Person()
+p.increaseAge 5
+print p.age
+
+Groovy中的类和Java中的类很相似
+
+默认类的修饰符是public
+类不需要与它的源文件有相同的名称，但还是建议采用相同的名称
+没有可见性修饰符的字段会自动生成对应的setter和getter方法
+
+###### 语句
+- 断言

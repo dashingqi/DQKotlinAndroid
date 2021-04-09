@@ -168,6 +168,20 @@ def minus(c, d) {
     println "${c - d}"
 }
 
+task method1{
+    doLast {
+        assert 1+2 == 6
+    }
+}
+
+/**
+ * 运行结果
+ * > assert 1+2 == 6
+ *           |  |
+ *           3  false
+ */
+
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
