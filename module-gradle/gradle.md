@@ -230,3 +230,62 @@ Groovy中的类和Java中的类很相似
 
 ###### 语句
 - 断言
+```aidl
+task method1{
+    doLast {
+        assert 1+2 == 6
+    }
+}
+```
+
+- for循环
+Groovy支持Java的for(int i=0;i<n;i++)和for(int i:array)形式的循环语句，
+另外还支持for in loop形式。
+支持遍历范围、列表、Map、数组和字符串多种类型
+
+- for in loop 形式（遍历范围）
+def x = 20
+for (i in 0..4) {
+    x += i
+}
+println x
+
+- 遍历列表
+for(i in [0,1,2,3,4]) {
+    x += i
+}
+
+- 遍历map
+```aidl
+def map = ['a': 1, 'b': 2, 'c': 3]
+for(v in map.values()){
+    x += v
+}
+```
+
+- switch语句
+```aidl
+def y = 16
+def value = ""
+
+switch (y) {
+    case "ok":
+        value = "found ok"
+        break
+    case [1, 23, 4, 5, 'list']:
+        value = 'list'
+        break
+    case 10..19:
+        value = "range"
+        break
+    case Integer:
+        value = "integer"
+        break
+    default:
+        value = "default"
+        break
+}
+
+println value
+```
+
