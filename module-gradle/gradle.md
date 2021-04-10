@@ -92,7 +92,7 @@ OS:           Mac OS X 10.16 x86_64
 - 4. 利用 ~/.gradle目录下对应的版本的 gradle 进行相应自动编译操作。
 
 #### 在项目和module的build.gradle脚本文件执行task
-```aidl
+```groovy
 task updateTask {
         doLast {
             println "perform update"
@@ -101,7 +101,7 @@ task updateTask {
 ```
 ###### 使用gradle执行updateTask
 gradle updateTask
-```aidl
+```groovy
 // project下的执行结果
 > Task :updateTask
 perform update
@@ -116,7 +116,7 @@ perform update
 
 ###### 使用./gradlew执行updateTask
 ./gradlew updateTask
-```aidl
+```groovy
 > Task :updateTask
 perform update
 :updateTask spend 1ms
@@ -135,7 +135,7 @@ Task里的Action只会在该Task真正运行时执行，Gradle里通过doFirst�
 - doFirst：task执行时最先执行的操作。
 - doLast: task执行时最后执行的操作。
 
-```aidl
+```groovy
 task task1{
     println "this is task1"
 }
@@ -158,7 +158,7 @@ task2.doLast{
 ```
 使用gradle命令执行 task ---> task1,执行结果如下
 
-```aidl
+```groovy
 > Task :module-gradle:task1
 task1 doFirst
 task1 doLast
@@ -230,7 +230,7 @@ Groovy中的类和Java中的类很相似
 
 ###### 语句
 - 断言
-```aidl
+```groovy
 task method1{
     doLast {
         assert 1+2 == 6
@@ -256,7 +256,7 @@ for(i in [0,1,2,3,4]) {
 }
 
 - 遍历map
-```aidl
+```groovy
 def map = ['a': 1, 'b': 2, 'c': 3]
 for(v in map.values()){
     x += v
@@ -264,7 +264,7 @@ for(v in map.values()){
 ```
 
 - switch语句
-```aidl
+```groovy
 def y = 16
 def value = ""
 
@@ -295,7 +295,7 @@ println value
 在Groovy中双引号字符串支持插值
 ###### 双引号字符串
 双引号字符串支持插值，插值值得就是替换字符串中的占位符，占位符表达式位${}或者$
-```aidl
+```groovy
 def name = 'dashingqi'
 //插值
 println "hello ${name}"
@@ -303,7 +303,7 @@ println "hello $name"
 ```
 ###### 三引号字符串
 三引号字符串的特点是可以保留文本的换行和缩进格式，不支持插值。
-```aidl
+```groovy
 def name1 = '''
        zhangqi
             dashingqi
@@ -318,7 +318,8 @@ println name1
 GString类型就是双引号字符串中包含了插值，就是GString类型
 
 #### List
-```aidl
+
+```groovy
 def number = [1,2,3,4]
 def linkedList instanceof list
 
@@ -331,7 +332,7 @@ println number[-1]
 #### Map
 创建Map使用[],需要同时制定Key和Value，默认的实现类位LinkedHashMap
 
-```aidl
+```groovy
 
 def names = [one:'zhangqi',two:'dashingqi',three:'zdq']
 println names['one']
@@ -359,7 +360,7 @@ params：参数部分
 statements：语句部分
 
 
-```aidl
+```groovy
 
 def code = { 123 }
 def isOddNumber = { i -> i % 2 != 0 }
@@ -367,6 +368,22 @@ println isOddNumber(5)
 println code()
 
 ```
+
+#### 文件读取
+
+```groovy
+// 声明一个文件地址
+def filePath = '/Users/zhangqi/downloads/Test.java'
+
+// 获取文件对象
+def file = new File(filePath)
+// 读取文件
+file.eachLine { it ->
+    println it
+}
+```
+
+
 
 
 
