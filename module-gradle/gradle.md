@@ -369,7 +369,9 @@ println code()
 
 ```
 
-#### 文件读取
+#### 文件
+
+###### 文件读取
 
 ```groovy
 // 声明一个文件地址
@@ -381,7 +383,26 @@ def file = new File(filePath)
 file.eachLine { it ->
     println it
 }
+
+// println(file.text) 简洁的写法
 ```
+
+###### 文件写入
+
+```groovy
+
+file.withWriterAppend { it ->
+    it.println("class Test {")
+    it.println("    public static void main(String args[]) {")
+    it.print("\n")
+    it.println("     }")
+    it.println("}")
+
+}
+println(file.text)
+
+```
+
 
 
 
