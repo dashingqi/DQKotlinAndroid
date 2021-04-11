@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply from: 'other.gradle'
 
 android {
     compileSdkVersion 30
@@ -168,9 +169,9 @@ def minus(c, d) {
     println "${c - d}"
 }
 
-task method1{
+task method1 {
     doLast {
-        assert 1+2 == 6
+        assert 1 + 2 == 6
     }
 }
 
@@ -181,9 +182,15 @@ task method1{
  *           3  false
  */
 
-task method2{
-    doLast{
+task method2 {
+    doLast {
         assert "zhangqi:${1}".hashCode() != "zhangqi:1".hashCode()
+    }
+}
+
+task method3 {
+    doLast {
+        println "版本${versions},姓名是${names}"
     }
 }
 

@@ -10,7 +10,6 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.chiatai.module_animation"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
