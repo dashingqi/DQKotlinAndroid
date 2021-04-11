@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
 }
 apply from: 'other.gradle'
+//引入自定义插件
+apply plugin:CustomPlugin
 
 android {
     compileSdkVersion 30
@@ -158,7 +160,6 @@ android {
 
         }
     }
-
 }
 
 def add(int e, int b) {
@@ -206,4 +207,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+}
+
+
+class CustomPlugin implements Plugin<Project>{
+
+    @Override
+    void apply(Project target) {
+            target.task('CustomPluginTask'){
+                doLast{
+                    println "自定义插件"
+                }
+            }
+    }
 }

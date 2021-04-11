@@ -35,4 +35,24 @@ apply from: 'other.gradle'
 
 **第三方插件**
 
+- 自定义对象插件
+```groovy
+// 自定义插件需要实现 org.gradle.api.plugins<Project>接口插件，
+// 在build.gradle中定义一个插件实现了上述接口
+class CustomPlugin implements Plugin<Project>{
+
+    @Override
+    void apply(Project target) {
+            target.task('CustomPluginTask'){
+                doLast{
+                    println "自定义插件"
+                }
+            }
+    }
+}
+// 引入自定义对象的插件
+apply plugin:CustomPlugin
+```
+
+
 
