@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.dashingqi.module.net.body.ZGYDBody
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import java.io.IOException
@@ -45,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+
         //发起网络请求，请求
 //        Service.netService.create(IWanAndroid::class.java).getChapters()
 //            .enqueue(object : Callback<BaseResponse> {
@@ -68,6 +71,11 @@ class MainActivity : AppCompatActivity() {
 //            .doOnFailure {
 //                Toast.makeText(this, "失败了", Toast.LENGTH_LONG).show()
 //            }
+
+       /* var zgydBody = ZGYDBody(
+            "1.0", "${System.currentTimeMillis()}",
+            "com.dashingqi.module.net","3"
+        )*/
 
     }
 }

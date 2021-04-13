@@ -3,6 +3,9 @@ package com.dashingqi.module.net
 import com.dashingqi.dqhttp.call.BaseCallBack
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
 /**
  * @author : zhangqi
@@ -15,4 +18,11 @@ interface IWanAndroid {
 
     @GET("/wxarticle/chapters/json")
     fun getChapters1(): BaseCallBack<BaseResponse>
+
+    /**
+     * 获取到参数
+     */
+    @Headers("Content-type:application/json;charset=UTF-8")
+    @POST("/h5/getMobile")
+    fun getZGYDParam():BaseCallBack<BaseResponse>
 }

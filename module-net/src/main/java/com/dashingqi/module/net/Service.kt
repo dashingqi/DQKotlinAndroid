@@ -15,9 +15,26 @@ object Service {
         createNetService()
     }
 
+    val ZGYDService by lazy{
+
+    }
+
     private fun createNetService(): NetService {
         val netServiceBuilder = NetServiceBuilder()
         netServiceBuilder.setBaseUrl("https://www.wanandroid.com")
+            .setIgnoreSSl(true)
+            .setOkHttpClientBuilder {
+            }
+            .setRetrofitBuilder {
+                it.addCallAdapterFactory(BaseCallAdapterFactory())
+            }
+
+        return netServiceBuilder.builder()
+    }
+
+    private fun createZGYDNetService(): NetService {
+        val netServiceBuilder = NetServiceBuilder()
+        netServiceBuilder.setBaseUrl("https://verify.cmpassport.com")
             .setIgnoreSSl(true)
             .setOkHttpClientBuilder {
             }
