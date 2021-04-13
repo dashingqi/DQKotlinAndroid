@@ -2,6 +2,7 @@ package com.dashingqi.module.net
 
 import com.dashingqi.dqhttp.call.BaseCallBack
 import com.dashingqi.module.net.body.ZGYDBody
+import com.dashingqi.module.net.response.ZGYDResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,5 +23,5 @@ interface IWanAndroid {
      */
     @Headers("Content-type:application/json;charset=UTF-8")
     @POST("/h5/getMobile")
-    fun getZGYDParam(@Body body:ZGYDBody):BaseCallBack<BaseResponse>
+    fun getZGYDParam(@Body body:ZGYDBody):BaseCallBack<ZGYDResponse>
 }

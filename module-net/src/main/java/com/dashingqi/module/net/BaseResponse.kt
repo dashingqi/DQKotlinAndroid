@@ -7,7 +7,7 @@ import com.dashingqi.dqhttp.response.IResponse
  * @time : 12/22/20
  * desc :
  */
-class BaseResponse : IResponse {
+open class BaseResponse : IResponse {
     override fun getMessage(): String {
         return ""
     }

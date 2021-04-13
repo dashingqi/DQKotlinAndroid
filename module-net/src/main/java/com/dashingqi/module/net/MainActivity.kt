@@ -3,13 +3,8 @@ package com.dashingqi.module.net
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.dashingqi.module.net.body.ZGYDBody
-import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.*
-import java.io.IOException
-import java.util.concurrent.TimeUnit
-import kotlin.time.Duration
+import com.dashingqi.module.net.utils.Utils
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
@@ -98,6 +93,8 @@ class MainActivity : AppCompatActivity() {
 
         Service.ZGYDService.create(IWanAndroid::class.java).getZGYDParam(zgydBody)
                 .doOnResponseHeaderSuccess { call, response ->
+                    Log.d(TAG,"resultCode == ${response.body.resultCode} " +
+                            "resultDesc = ${response.body.resultDesc} token == ${response.body.token}")
 
                 }
 

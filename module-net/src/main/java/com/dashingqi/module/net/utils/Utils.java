@@ -1,4 +1,4 @@
-package com.dashingqi.module.net;
+package com.dashingqi.module.net.utils;
 
 import android.text.TextUtils;
 
