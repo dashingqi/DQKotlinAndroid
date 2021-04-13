@@ -16,7 +16,7 @@ object Service {
     }
 
     val ZGYDService by lazy{
-
+            createZGYDNetService()
     }
 
     private fun createNetService(): NetService {

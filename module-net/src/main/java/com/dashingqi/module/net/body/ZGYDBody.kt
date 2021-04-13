@@ -5,6 +5,6 @@ package com.dashingqi.module.net.body
  * @since 2021/4/13
  */
 class ZGYDBody(
-    version: String="1.0", timestamp: String = "${System.currentTimeMillis()}", appId: String,
-    businessType: String, traceid: String, sing: String, msgId: String, expandParams: String
+    var version: String="1.0", var timestamp: String = "${System.currentTimeMillis()}", var appId: String,
+   var  businessType: String, var traceid: String, var sign: String,var  msgId: String
 )
