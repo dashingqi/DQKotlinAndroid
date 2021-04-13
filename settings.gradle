@@ -32,7 +32,7 @@ include ':module-databinding'
 include ':module-room'
 include ':module-kotlin-base'
 include ':module-lambda'
-rootProject.name='KotlinProject'
+rootProject.name = 'KotlinProject'
 include ':app'
 include ':viewmodeldemo'
 include ':lifecycledemo'
@@ -42,3 +42,23 @@ include ':activitydemo'
 include ':uidemo'
 include ':kotlinfunctionproject'
 include ':module-test-dqpay'
+
+def beginOfConfig
+def configHasBegin = false
+def beginOfProjectConfig = new HashMap()
+
+
+gradle.beforeProject { project ->
+    println "$project"
+    if (!configHasBegin) {
+        configHasBegin = true
+        beginOfConfig = System.currentTimeMillis()
+    }
+    beginOfProjectConfig.put(project, System.currentTimeMillis())
+}
+
+gradle.afterProject { project ->
+    println "$project"
+    def begin = beginOfProjectConfig.get(project)
+    println "配置阶段，$project 耗时 ${System.currentTimeMillis()-begin} ms"
+}
