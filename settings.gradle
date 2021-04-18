@@ -1,3 +1,4 @@
+include ':buildsrc'
 include ':module-gradle'
 include ':module-compose'
 include ':module-interview'
