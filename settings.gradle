@@ -1,3 +1,4 @@
+include ':module-storage'
 include ':buildsrc'
 include ':module-gradle'
 include ':module-compose'
