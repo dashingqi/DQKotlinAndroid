@@ -11,11 +11,20 @@
         android:id="@+id/btnToken"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="获取token"
+        android:text="@string/token_wifi_by_4G"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn4G"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/token_by_4G"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnToken" />
 
 
     <TextView
@@ -23,8 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textSize="18dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/btnToken" />
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn4G" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

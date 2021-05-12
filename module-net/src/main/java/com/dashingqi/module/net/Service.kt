@@ -34,7 +34,7 @@ object Service {
 
     private fun createZGYDNetService(): NetService {
         val netServiceBuilder = NetServiceBuilder()
-        netServiceBuilder.setBaseUrl("https://verify.cmpassport.com")
+        netServiceBuilder.setBaseUrl("")
             .setIgnoreSSl(true)
             .setOkHttpClientBuilder {
             }

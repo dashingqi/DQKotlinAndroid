@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">module-net</string>
+    <string name="token_wifi_by_4G">获取token,Wifi情况下走4G网络</string>
+    <string name="token_by_4G">4G网络情况下获取Token</string>
 </resources>
