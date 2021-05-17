@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "cacheDir = $cacheDir: filesDir = $filesDir")
         var path = getExternalStorageDirectory().path
         Log.d(TAG, "path= $path: ")
+        Log.d(TAG, "path= $path: ")
+        Log.d(TAG, "path= $path: ")
 
     }
 }
