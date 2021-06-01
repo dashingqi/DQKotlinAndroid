@@ -50,6 +50,7 @@
             <option value="$PROJECT_DIR$/module-shortcuts" />
             <option value="$PROJECT_DIR$/module-startup" />
             <option value="$PROJECT_DIR$/module-storage" />
+            <option value="$PROJECT_DIR$/module-system-info" />
             <option value="$PROJECT_DIR$/module-test-dqpay" />
             <option value="$PROJECT_DIR$/module-thread" />
             <option value="$PROJECT_DIR$/module-viewbinding" />
