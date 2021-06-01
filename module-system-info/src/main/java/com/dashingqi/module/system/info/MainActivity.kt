@@ -39,10 +39,18 @@ class MainActivity : AppCompatActivity() {
             val subscriptionManager = it as SubscriptionManager
             var subscriptionClass = Class.forName(subscriptionManager.javaClass.name)
             var method = subscriptionClass.getMethod("getDefaultDataPhoneId")
+            var method1 = subscriptionClass.getMethod("getDefaultDataSubscriptionId")
             var invoke = method.invoke(subscriptionManager)
+            var invoke1 = method1.invoke(subscriptionManager)
+
             invoke?.let {
                 val code: Int = it as Int
                 Log.d(TAG, "code = $code")
+            }
+
+            invoke1?.let {
+                val code1 = it as Int
+                Log.d(TAG, "code1 = $code1")
             }
         }
     }
