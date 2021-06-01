@@ -40,6 +40,20 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        //启动一个协程
+        runBlocking {
+
+            launch {
+
+            }
+
+            async {  }
+
+        }
+
+
+
+
 
     }
 
