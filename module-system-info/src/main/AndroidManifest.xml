@@ -23,6 +23,7 @@
             <intent-filter>
                 <action android:name="android.intent
                 .action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED" />
+                <action android:name="android.intent.action.ACTION_SET_RADIO_CAPABILITY_DONE" />
             </intent-filter>
         </receiver>
 

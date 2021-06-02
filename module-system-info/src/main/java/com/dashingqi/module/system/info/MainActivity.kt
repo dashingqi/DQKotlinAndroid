@@ -7,6 +7,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Telephony
 import android.telephony.*
 import android.util.Log
 
@@ -25,15 +26,9 @@ class MainActivity : AppCompatActivity() {
                     super.onDataConnectionStateChanged(state, networkType)
                     Log.d(TAG, "onDataConnectionStateChanged: ")
                 }
-
-                override fun onSignalStrengthsChanged(signalStrength: SignalStrength?) {
-                    super.onSignalStrengthsChanged(signalStrength)
-                    Log.d(TAG, "onDataConnectionStateChanged: ")
-                }
-
             }
 
-//            telephonyManager.listen(listener, 0x00000100)
+            telephonyManager.listen(listener, PhoneStateListener.LISTEN_DATA_CONNECTION_STATE)
         }
 
         subscriptionService?.let {
@@ -76,23 +71,24 @@ class MainActivity : AppCompatActivity() {
             mConnectivityManager?.let {
                 var builder =
                     NetworkRequest.Builder()
+                Telephony
                 var request = builder.build()
-                it.registerNetworkCallback(request, object : ConnectivityManager.NetworkCallback() {
-                    override fun onAvailable(network: Network) {
-                        super.onAvailable(network)
-                        Log.d(TAG, "onAvailable: ")
-                    }
-
-                    override fun onLosing(network: Network, maxMsToLive: Int) {
-                        super.onLosing(network, maxMsToLive)
-                        Log.d(TAG, "onLosing: ")
-                    }
-
-                    override fun onLost(network: Network) {
-                        super.onLost(network)
-                        Log.d(TAG, "onLost: ")
-                    }
-                })
+//                it.registerNetworkCallback(request, object : ConnectivityManager.NetworkCallback() {
+//                    override fun onAvailable(network: Network) {
+//                        super.onAvailable(network)
+//                        Log.d(TAG, "onAvailable: ")
+//                    }
+//
+//                    override fun onLosing(network: Network, maxMsToLive: Int) {
+//                        super.onLosing(network, maxMsToLive)
+//                        Log.d(TAG, "onLosing: ")
+//                    }
+//
+//                    override fun onLost(network: Network) {
+//                        super.onLost(network)
+//                        Log.d(TAG, "onLost: ")
+//                    }
+//                })
             }
         }
     }
