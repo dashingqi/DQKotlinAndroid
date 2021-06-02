@@ -1,6 +1,9 @@
 package com.dashingqi.module.system.info
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkRequest
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.telephony.CellInfo
@@ -15,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val telephonyService =
-            getSystemService(Context.TELEPHONY_SERVICE)
+                getSystemService(Context.TELEPHONY_SERVICE)
         var subscriptionService = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE)
         telephonyService?.let {
 //            val telephonyManager = it as TelephonyManager
@@ -51,6 +54,17 @@ class MainActivity : AppCompatActivity() {
             invoke1?.let {
                 val code1 = it as Int
                 Log.d(TAG, "code1 = $code1")
+            }
+        }
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            /** 获取到ConnectivityManager对象 */
+            val mConnectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+            mConnectivityManager?.let {
+                var builder =
+                        NetworkRequest.Builder()
+                var request = builder.build()
             }
         }
     }
