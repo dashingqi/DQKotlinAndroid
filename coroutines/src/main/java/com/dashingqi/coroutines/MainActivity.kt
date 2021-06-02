@@ -47,13 +47,17 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            async {  }
+            async { }
 
         }
 
+        val job = GlobalScope.launch {
+        }
 
 
+    }
 
+    suspend fun test() = coroutineScope {
 
     }
 
