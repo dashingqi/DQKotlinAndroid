@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dashingqi.module.system.info">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ChangeSimReceiver">
+            <intent-filter>
+                <action android:name="android.intent
+                .action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
