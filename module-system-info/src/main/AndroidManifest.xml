@@ -19,11 +19,21 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ChangeSimReceiver">
+        <receiver
+            android:name=".ChangeSimReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent
-                .action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED" />
-                <action android:name="android.intent.action.ACTION_SET_RADIO_CAPABILITY_DONE" />
+                <!--                <action android:name="android.telephony-->
+                <!--                .action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED" />-->
+                <!--                <action android:name="android.telephony.action.ACTION_SET_RADIO_CAPABILITY_DONE" />-->
+                <!--                <action android:name="android.telephony.action.DEFAULT_SMS_SUBSCRIPTION_CHANGED"/>-->
+                <!--                <action android:name="android.telephony.action.DEFAULT_SUBSCRIPTION_CHANGED"/>-->
+                <action android:name="android.telephony.action.CARRIER_SIGNAL_DEFAULT_NETWORK_AVAILABLE" />
+                <action android:name="android.telephony.action.MULTI_SIM_CONFIG_CHANGED" />
+                <action android:name="android.telephony.action.NETWORK_COUNTRY_CHANGED" />
+                <action android:name="android.telephony.action.SUBSCRIPTION_CARRIER_IDENTITY_CHANGED" />
+
             </intent-filter>
         </receiver>
 

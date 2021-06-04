@@ -10,8 +10,12 @@ import android.util.Log
  * @since 6/2/21
  */
 class ChangeSimReceiver : BroadcastReceiver() {
-    private  val TAG = "MainActivity"
+    private val TAG = "MainActivity"
     override fun onReceive(context: Context?, intent: Intent?) {
+        intent?.let {
+            var action = it.action
+            Log.d(TAG, "onReceive: action == $action")
+        }
         Log.d(TAG, "onReceive: ")
     }
 }

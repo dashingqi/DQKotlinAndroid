@@ -1,6 +1,8 @@
 package com.dashingqi.module.system.info
 
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
@@ -13,50 +15,52 @@ import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
+    var changeSimReceiver = ChangeSimReceiver()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        register()
         val telephonyService =
-            getSystemService(Context.TELEPHONY_SERVICE)
+                getSystemService(Context.TELEPHONY_SERVICE)
         var subscriptionService = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE)
         telephonyService?.let {
-            val telephonyManager = it as TelephonyManager
-            val listener = object : PhoneStateListener() {
-                override fun onDataConnectionStateChanged(state: Int, networkType: Int) {
-                    super.onDataConnectionStateChanged(state, networkType)
-                    Log.d(TAG, "onDataConnectionStateChanged: ")
-                }
-            }
-
-            telephonyManager.listen(listener, PhoneStateListener.LISTEN_DATA_CONNECTION_STATE)
+//            val telephonyManager = it as TelephonyManager
+//            val listener = object : PhoneStateListener() {
+//                override fun onDataConnectionStateChanged(state: Int, networkType: Int) {
+//                    super.onDataConnectionStateChanged(state, networkType)
+//                    Log.d(TAG, "onDataConnectionStateChanged: ")
+//                }
+//            }
+//
+//            telephonyManager.listen(listener, PhoneStateListener.LISTEN_DATA_CONNECTION_STATE)
         }
 
         subscriptionService?.let {
-            val subscriptionManager = it as SubscriptionManager
-            var subscriptionClass = Class.forName(subscriptionManager.javaClass.name)
-            var method = subscriptionClass.getMethod("getDefaultDataPhoneId")
-            var method1 = subscriptionClass.getMethod("getDefaultDataSubscriptionId")
-            var method2 = subscriptionClass.getMethod("getActiveDataSubscriptionId")
+//            val subscriptionManager = it as SubscriptionManager
+//            var subscriptionClass = Class.forName(subscriptionManager.javaClass.name)
+//            var method = subscriptionClass.getMethod("getDefaultDataPhoneId")
+//            var method1 = subscriptionClass.getMethod("getDefaultDataSubscriptionId")
+//            var method2 = subscriptionClass.getMethod("getActiveDataSubscriptionId")
 
-            var invoke = method.invoke(subscriptionManager)
-            var invoke1 = method1.invoke(subscriptionManager)
-            var invoke2 = method2.invoke(subscriptionManager)
+//            var invoke = method.invoke(subscriptionManager)
+//            var invoke1 = method1.invoke(subscriptionManager)
+//            var invoke2 = method2.invoke(subscriptionManager)
 
 
-            invoke?.let {
-                val code: Int = it as Int
-                Log.d(TAG, "code = $code")
-            }
+//            invoke?.let {
+//                val code: Int = it as Int
+//                Log.d(TAG, "code = $code")
+//            }
+//
+//            invoke1?.let {
+//                val code1 = it as Int
+//                Log.d(TAG, "code1 = $code1")
+//            }
 
-            invoke1?.let {
-                val code1 = it as Int
-                Log.d(TAG, "code1 = $code1")
-            }
-
-            invoke2?.let {
-                val code2 = it as Int
-                Log.d(TAG, "code2 = $code2")
-            }
+//            invoke2?.let {
+//                val code2 = it as Int
+//                Log.d(TAG, "code2 = $code2")
+//            }
 
         }
 
@@ -64,11 +68,11 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             /** 获取到ConnectivityManager对象 */
             val mConnectivityManager =
-                getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+                    getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
             Log.d(TAG, "perform ---->")
             mConnectivityManager?.let {
                 var builder =
-                    NetworkRequest.Builder()
+                        NetworkRequest.Builder()
                 var request = builder.build()
 //                it.registerNetworkCallback(request, object : ConnectivityManager.NetworkCallback() {
 //                    override fun onAvailable(network: Network) {
@@ -88,5 +92,19 @@ class MainActivity : AppCompatActivity() {
 //                })
             }
         }
+    }
+
+
+    private fun register() {
+
+        val intentFilter = IntentFilter().apply {
+        }
+        registerReceiver(changeSimReceiver, intentFilter)
+    }
+
+    override fun onDestroy() {
+        unregisterReceiver(changeSimReceiver)
+        super.onDestroy()
+
     }
 }
