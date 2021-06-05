@@ -3,9 +3,11 @@ package com.dashingqi.coroutines
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.util.concurrent.Executors
 import kotlin.concurrent.thread
+import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
@@ -13,7 +15,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        tv.text = "zhangqisdsadasdsadasdasd"
+        updateView.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                Log.d(TAG, "onCreate: currentThread == ${Thread.currentThread().name}")
+                val tvLayoutParams = tv.layoutParams
+                var width = tvLayoutParams.width
+                Log.d(TAG, "onCreate: with = ${width}")
+                tv.text = "zhangqisdsadasdsadasdasd"
+            }
+        }
         Thread {}.start()
         thread {
 
@@ -52,6 +63,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         val job = GlobalScope.launch {
+        }
+
+        var coroutineScope = CoroutineScope(Dispatchers.Main).launch {
+            Log.d(TAG, "onCreate: CoroutineScope ")
         }
 
 
