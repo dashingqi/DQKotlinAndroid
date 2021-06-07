@@ -25,60 +25,29 @@ class MainActivity : AppCompatActivity() {
                 tv.text = "zhangqisdsadasdsadasdasd"
             }
         }
-        Thread {}.start()
-        thread {
-
-        }
-        var newCachedThreadPool = Executors.newCachedThreadPool()
-        newCachedThreadPool.execute {
-
-        }
-
-
-
-        GlobalScope.launch {
-
-        }
+//        GlobalScope.launch(Dispatchers.Main) {
+//            val str = async { method2() }
+//            val str2 = async { method3() }
+//            handleResult(str.await(), str2.await())
+//        }
 
         GlobalScope.launch(Dispatchers.Main) {
-            method1()
-        }
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val str = async { method2() }
-            val str2 = async { method3() }
-            handleResult(str.await(), str2.await())
-
-        }
-
-        //启动一个协程
-        runBlocking {
-
-            launch {
-
+            Log.d(TAG, "thread-name = ${Thread.currentThread().name} ")
+            launch(Dispatchers.IO) {
+                delay(5000)
+                Log.d(TAG, "launch: thread-name = ${Thread.currentThread().name}")
             }
 
-            async { }
-
+            Log.d(TAG, "onCreate: thread-name = ${Thread.currentThread().name}")
         }
-
-        val job = GlobalScope.launch {
-        }
-
-        var coroutineScope = CoroutineScope(Dispatchers.Main).launch {
-            Log.d(TAG, "onCreate: CoroutineScope ")
-        }
-
-
-    }
-
-    suspend fun test() = coroutineScope {
-
+        Log.d(TAG, "onCreate: ")
     }
 
     private suspend fun method1() {
         withContext(Dispatchers.IO) {
-
+            delay(5000)
+            Log.d(TAG, "method1: thread-name = ${Thread.currentThread().name}")
         }
     }
 
