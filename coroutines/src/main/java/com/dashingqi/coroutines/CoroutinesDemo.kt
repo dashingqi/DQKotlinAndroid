@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
  */
 private const val TAG = "CoroutinesDemo"
 
-fun main() {
+fun main(args : Array<String>) {
     GlobalScope.launch(Dispatchers.Main) {
         Log.d(TAG, "main: thread-name = ${Thread.currentThread().name} ")
         method1()
