@@ -1,5 +1,6 @@
 package com.dashingqi.coroutines
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +10,7 @@ import java.util.concurrent.Executors
 import kotlin.concurrent.thread
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ScopeActivity() {
     private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
                 var width = tvLayoutParams.width
                 Log.d(TAG, "onCreate: with = ${width}")
                 tv.text = "zhangqisdsadasdsadasdasd"
+            }
+        }
+
+        jump.setOnClickListener {
+            Intent(this, SecondActivity::class.java).apply {
+                startActivity(this)
             }
         }
 //        GlobalScope.launch(Dispatchers.Main) {
