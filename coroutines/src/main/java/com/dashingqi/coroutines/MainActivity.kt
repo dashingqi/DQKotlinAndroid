@@ -9,6 +9,10 @@ import kotlinx.coroutines.*
 class MainActivity : ScopeActivity() {
     private val TAG = "MainActivity"
 
+
+    val mainScope = MainScope()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,12 +25,13 @@ class MainActivity : ScopeActivity() {
 
 
         GlobalScope.launch(Dispatchers.Main) {
+            async(Dispatchers.IO){}
             testLaunch()
         }
         Log.d(TAG, "testLaunch: ")
     }
 
-    private fun test( flag: Int) {
+    private fun test(flag: Int) {
 
         updateView.setOnClickListener {
 
@@ -46,7 +51,7 @@ class MainActivity : ScopeActivity() {
             }
 
             Log.d(TAG, ": ${Thread.currentThread().name} ----> 创建懒加载子协程")
-            val job1 = launch(start = CoroutineStart.LAZY) {
+            val job1 = launch(start = CoroutineStart.LAZY, context = Dispatchers.IO) {
                 Log.d(TAG, "${Thread.currentThread().name}: --------> 开启一个懒加载协程1");
             }
 
@@ -64,6 +69,11 @@ class MainActivity : ScopeActivity() {
         }
 
         job.join()
+
+    }
+
+    suspend fun method1() {
+        withContext(Dispatchers.IO) {}
 
     }
 
