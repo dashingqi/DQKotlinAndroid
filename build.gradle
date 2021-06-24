@@ -3,6 +3,7 @@
 buildscript {
     ext.kotlin_version = '1.4.21'
     repositories {
+        mavenCentral()
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
@@ -22,6 +23,7 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
