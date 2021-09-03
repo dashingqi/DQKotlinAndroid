@@ -41,3 +41,5 @@ task updateTask {
     }
 }
 
+print("Hello World，Groovy")
+

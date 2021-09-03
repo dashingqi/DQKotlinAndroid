@@ -1,5 +1,6 @@
 package com.dashingqi.coroutines
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,6 +12,7 @@ class SecondActivity : ScopeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        val stringExtra:String = intent.getStringExtra("")
         launch(Dispatchers.Main) {
             delay(5000)
             Toast.makeText(
