@@ -41,3 +41,23 @@ task updateTask {
     }
 }
 
+println("Hello World，Groovy")
+
+// 单行注释
+
+/*
+多行注释
+ */
+
+// byte,short,int,long,float,double,char
+
+// 声明变量
+
+int a = 10
+def b = 10
+
+println("a = $a")
+println("b = $b")
+
+// 循环
+
