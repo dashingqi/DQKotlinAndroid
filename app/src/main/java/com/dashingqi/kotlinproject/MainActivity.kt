@@ -1,14 +1,13 @@
 package com.dashingqi.kotlinproject
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import com.dashingqi.kotlinproject.compare.CompareMain
 import com.dashingqi.kotlinproject.compare.PersonComapre
 import java.lang.StringBuilder
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
 
     private val TAG = "MainActivity"
 

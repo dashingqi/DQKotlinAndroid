@@ -7,7 +7,13 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
-
+        // /Users/zhangqi/material/localandroid/DQRouter/repo
+        /**
+         * 1. 配置Maven仓库地址,用于光立插件的地址
+         */
+        maven{
+            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
@@ -27,6 +33,12 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
+        /**
+         * 用于配置仓库地址，用于管理 module中的依赖
+         */
+        maven{
+            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
+        }
 
     }
 }
