@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -36,5 +37,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.dashingqi.router:router-annotaions:1.0.0'
-    annotationProcessor 'com.dashingqi.router:router-processor:1.0.0'
+    kapt 'com.dashingqi.router:router-processor:1.0.0'
 }
