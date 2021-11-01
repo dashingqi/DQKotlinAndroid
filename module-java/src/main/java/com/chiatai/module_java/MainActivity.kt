@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.chiatai.module_java.annotation.IntDefClazz
 import com.chiatai.module_java.proxy.IProxy
 import com.chiatai.module_java.proxy.ProxyUtils
 import com.chiatai.module_java.thread.ThreadActivity
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        IntDefClazz.printTag(IntDefClazz.TAG_ONE)
 
         btnThread.setOnClickListener {
             Intent(this, ThreadActivity::class.java).apply {
