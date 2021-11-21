@@ -66,3 +66,4 @@ gradle.afterProject { project ->
     def begin = beginOfProjectConfig.get(project)
     println "配置阶段，$project 耗时 ${System.currentTimeMillis()-begin} ms"
 }
+include ':module-plugin'

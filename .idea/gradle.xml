@@ -43,6 +43,7 @@
             <option value="$PROJECT_DIR$/module-navigation" />
             <option value="$PROJECT_DIR$/module-net" />
             <option value="$PROJECT_DIR$/module-notification" />
+            <option value="$PROJECT_DIR$/module-plugin" />
             <option value="$PROJECT_DIR$/module-provider" />
             <option value="$PROJECT_DIR$/module-recyclerview" />
             <option value="$PROJECT_DIR$/module-room" />

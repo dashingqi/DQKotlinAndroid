@@ -4,6 +4,8 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import com.dashingqi.kotlinproject.compare.PersonComapre
+import dalvik.system.DexClassLoader
+import java.lang.Exception
 import java.lang.StringBuilder
 import java.util.*
 
@@ -56,6 +58,21 @@ class MainActivity : Activity() {
         //使用了自定义比较器，Person类完全不用做任何修改
         Arrays.sort(persons, PersonComapre())
         Log.d(TAG, "比较之后${get(persons)}")
+
+
+
+        try {
+            // 定义一个DexClassLoader
+            val dexClassLoader = DexClassLoader(
+                "/sdcard/Dashingqi.dex",
+                this.cacheDir.absolutePath,
+                null, classLoader
+            )
+            var loadClass = dexClassLoader.loadClass("com.dashingqi.plugin.Dashingqi")
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+        }
+
     }
 
     fun get(array: Array<com.dashingqi.kotlinproject.compare.Person>): String {
