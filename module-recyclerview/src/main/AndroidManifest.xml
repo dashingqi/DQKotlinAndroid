@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".diff.DiffUtilActivity"></activity>
+        <activity
+            android:name=".RVDragRectActivity"
+            android:exported="false" />
+        <activity android:name=".diff.DiffUtilActivity" />
         <activity android:name=".MyCustomerLayoutManagerActivity" />
         <activity android:name=".RvAutoActivity" />
         <activity android:name=".PositionActivity" />

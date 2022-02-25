@@ -11,13 +11,13 @@ buildscript {
         /**
          * 1. 配置Maven仓库地址,用于光立插件的地址
          */
-        maven{
-            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
-        }
+//        maven{
+//            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.0.0"
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
         classpath "com.alibaba:arouter-register:1.0.2"
@@ -36,9 +36,9 @@ allprojects {
         /**
          * 用于配置仓库地址，用于管理 module中的依赖
          */
-        maven{
-            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
-        }
+//        maven{
+//            url uri("/Users/zhangqi/material/localandroid/DQRouter/repo")
+//        }
 
     }
 }

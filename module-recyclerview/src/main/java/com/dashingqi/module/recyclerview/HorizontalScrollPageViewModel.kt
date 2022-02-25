@@ -1,6 +1,7 @@
 package com.dashingqi.module.recyclerview
 
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -24,10 +25,16 @@ class HorizontalScrollPageViewModel : ViewModel() {
     val items = ObservableArrayList<String>()
     val itemBinding = ItemBinding.of<String>(BR.item, R.layout.item_scroll_page)
 
+    val notifyChangeTop = ObservableBoolean(false)
+
     init {
         for (index in 0 until imgUrls.size) {
             items.add(imgUrls[index])
         }
+    }
+
+    fun changeMarginTop(){
+        notifyChangeTop.set(true)
     }
 
 }

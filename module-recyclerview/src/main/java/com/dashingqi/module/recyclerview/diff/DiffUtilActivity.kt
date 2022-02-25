@@ -13,7 +13,7 @@ class DiffUtilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diff_util)
-        var foodViewModel = ViewModelProvider(this).get(FoodViewModel::class.java)
+        val foodViewModel = ViewModelProvider(this).get(FoodViewModel::class.java)
         val adapter = DiffUtilAdapter(foodViewModel.items)
         foodRv.adapter = adapter
 
@@ -23,7 +23,7 @@ class DiffUtilActivity : AppCompatActivity() {
                 it.name = "1"
                 newList.add(it)
             }
-            var calculateDiff =
+            val calculateDiff =
                 DiffUtil.calculateDiff(DiffUtilCallBack(adapter.datas, newList), true)
             calculateDiff.dispatchUpdatesTo(adapter)
 

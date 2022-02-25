@@ -42,7 +42,7 @@ class ComItemDecorate : RecyclerView.ItemDecoration() {
         // item数
         val childItemCount = parent.childCount
 
-        for (index in 0..childItemCount-1) {
+        for (index in 0 until childItemCount) {
             val itemView = parent.getChildAt(index)
             val top = itemView.top
             val left = parent.paddingLeft

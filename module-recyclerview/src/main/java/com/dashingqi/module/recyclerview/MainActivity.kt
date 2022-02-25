@@ -76,6 +76,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnDragRect.setOnClickListener {
+            Intent(this, RVDragRectActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+
+    }
+
+    private fun isRight(intent:Intent){
+        intent?.getStringExtra("")
     }
 
 }

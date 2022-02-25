@@ -1,6 +1,5 @@
 package com.dashingqi.module.recyclerview
 
-import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
@@ -31,7 +30,7 @@ class PositionViewModel : ViewModel() {
     val itemBinding = ItemBinding.of<Food>(BR.item, R.layout.rv_item)
 
     init {
-        for (index in 0 until 200) {
+        for (index in 0 until 10) {
             val food = Food()
             food.name = "name $index"
             food.desc = "desc $index"

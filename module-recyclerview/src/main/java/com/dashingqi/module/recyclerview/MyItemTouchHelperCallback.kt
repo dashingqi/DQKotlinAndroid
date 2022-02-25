@@ -1,5 +1,6 @@
 package com.dashingqi.module.recyclerview
 
+import android.graphics.Canvas
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,7 +47,11 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
                 swipeFlag = ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
             }
             //第一个参数是拖拽flag，第二个是滑动的flag
-            return makeMovementFlags(dragFlag, swipeFlag)
+            return if (viewHolder.itemViewType == BLACK_VIEW_TYPE) {
+                makeMovementFlags(dragFlag, swipeFlag)
+            }else{
+                makeMovementFlags(0, 0)
+            }
         }
         return 0
     }
@@ -59,6 +64,9 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
+        if (viewHolder.itemViewType!=target.itemViewType){
+            return false
+        }
         if (touchHelperListener != null)
             return touchHelperListener.onMove(viewHolder.adapterPosition, target.adapterPosition)
         return false
@@ -71,6 +79,26 @@ class MyItemTouchHelperCallback(var touchHelperListener: MyItemTouchHelperCallba
             if (touchHelperListener!=null){
                 touchHelperListener.onSwiped(viewHolder.adapterPosition)
             }
+    }
+
+    override fun onChildDraw(
+        c: Canvas,
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder,
+        dX: Float,
+        dY: Float,
+        actionState: Int,
+        isCurrentlyActive: Boolean
+    ) {
+        var y = dY
+        if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
+            viewHolder?.let {
+                if (it.itemView.top + dY <= recyclerView.top) {
+                    y = (recyclerView.top - viewHolder.itemView.top).toFloat()
+                }
+            }
+        }
+        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }
 
     /**
